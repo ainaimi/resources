@@ -11,7 +11,7 @@
 
 
 
-<title>Accessing and Using Rollins HPC: A Basic Introduction</title>
+<title>computing.utf8</title>
 
 <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -281,12 +281,18 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Ashley I. Naimi</a>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="https://ainaimi.github.io/">Home</a>
+  <a href="https://ainaimi.github.io/index.html">Home</a>
+</li>
+<li>
+  <a href="https://ainaimi.github.io/team.html">Team</a>
+</li>
+<li>
+  <a href="https://ainaimi.github.io/access.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -329,12 +335,13 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Accessing and Using Rollins HPC: A Basic Introduction</h1>
 
 </div>
 
 
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"></p>
+<p><br> <br> <br></p>
+<div id="accessing-and-using-rollins-hpc-a-basic-introduction" class="section level1">
+<h1>Accessing and Using Rollins HPC: A Basic Introduction</h1>
 <div id="introduction-the-center-for-resource-computing" class="section level4">
 <h4>Introduction: The Center for Resource Computing</h4>
 <p>The Rollins School of Public Health houses a computing cluster, and if you are joining our research team, you will most likely have to use it at some point in your analyses. This document is meant to help you familiarize yourself with the basics behind using the Rollins computing cluster.</p>
@@ -464,6 +471,7 @@ scp anaimi@clogin01.sph.emory.edu:~/test/slurm-3240.out .</code></pre>
 <p>You should now have the simulation results on your local computer.</p>
 <p>Finally, note that important files and sensitive information should not be stored on the cluster long term. Thus, be sure you have everything you need on your local computer, and clean up the folder space on the cluster.</p>
 <p>To verify that you were able to successfully implement this exercise on your own, run the test.R program on your computer and compare the <code>.csv</code> file you obtain to the one you obtain from the run on the cluster. Additionally, as long as you used the seed value of 123 on your local and cluster runs, you can compare your output to the file included <a href="./files/simulation_results_rollins.csv">here</a>. The three should be identical.</p>
+</div>
 </div>
 
 
