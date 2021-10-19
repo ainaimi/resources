@@ -63,3 +63,5 @@ Technical Skills
 3)	Efron and Hastie (2017) Computer Age Statistical Inference: Algorithms, Evidence, and Data Science
 
 4)	Hastie, Tibshirani, Friedman (2009) Elements of Statistical Learning
+
+5) James, Witten, Hastie, Tibshirani (2017) Introduction to Statistical Learning
