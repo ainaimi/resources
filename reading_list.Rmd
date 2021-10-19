@@ -54,7 +54,7 @@ Technical Skills
 2)	Broussard (2019) Artificial Unintelligence: How Computers Misunderstand the World
 
 
-#### Advanced Texts
+## Advanced Texts
 
 1)	Wasserman (2006) All of Nonparametric Statistics
 
