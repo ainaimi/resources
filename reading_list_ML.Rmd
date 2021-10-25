@@ -1,0 +1,67 @@
+
+<br>
+<br>
+<br>
+
+# Machine Learning Reading List
+
+(Asterisks indicated “must reads”!)
+
+## Articles:
+
+Seminal work by Brieman on the distinction between a more classical statistical modeling approach and more recent “algorithmic” modeling approach.
+
+1) *Brieman (2001) Statistical Modeling: The Two Cultures.
+
+Excellent introduction to concepts and issues in using machine learning for epidemiologists.
+
+2)	Bi et al (2019) What is Machine Learning?: A Primer for Epidemiologists
+
+Attempt to demonstrate the fundamentals behind the super learner.
+
+3)	Naimi & Balzer (2018) Stacked Generalization: An Introduction to Super Learning
+
+Detailed resource on using the super learner in real data settings.
+
+4)	Kennedy (2017) Guide to Super Learner. URL: https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html
+
+Important example of some fundamental constraints on using data with algorithms to predict outcomes fairly.
+
+5)	Chouldechova (2016) Fair prediction with disparate impact: a study of bias in recidivism prediction instruments. https://arxiv.org/abs/1610.07524
+
+Excellent introduction to machine learning (emphasis on econometrics but very useful for epidemiologists).
+
+6)	Mullainathan, S. and J. Spiess, Machine learning: an applied econometric approach. Journal of Economic Perspectives, 2017. 31(2): p. 87-106
+
+Important example of how ML algorithms can yield very misleading predictions when deeper aspects of the data-modeling complex are not taken into account.
+
+7)	Caruana, R., et al. Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission. in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 2015. ACM.
+
+## Books:
+
+Technical Skills
+
+1)	*Burkov (2019) The Hundred Page Machine Learning Book
+
+2)	Burkov (2021) Machine Learning Engineering
+
+3)	Kuhn and Johnson (2016) Applied Predictive Modeling
+
+## Conceptual/Theoretical Understanding & Social Issues
+
+1)	*Mitchell (2019) Artificial Intelligence: A Guide for Thinking Humans
+
+2)	Broussard (2019) Artificial Unintelligence: How Computers Misunderstand the World
+
+
+## Advanced Texts
+
+1)	Wasserman (2006) All of Nonparametric Statistics
+
+2)	Shalev-Schwartz and Ben-David (2014) Understanding Machine Learning: From Theory to Algorithms
+
+3)	Efron and Hastie (2017) Computer Age Statistical Inference: Algorithms, Evidence, and Data Science
+
+4)	Hastie, Tibshirani, Friedman (2009) Elements of Statistical Learning
+
+5) James, Witten, Hastie, Tibshirani (2017) Introduction to Statistical Learning
