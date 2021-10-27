@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ComputerSetup.knit</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css" type="text/css" />
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="https://ainaimi.github.io/index.html">Home</a>
+</li>
+<li>
+  <a href="https://ainaimi.github.io/team.html">Team</a>
+</li>
+<li>
+  <a href="https://ainaimi.github.io/access.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:ashley.naimi@emory.edu">
+    <span class="fa fa-envelope fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/ainaimi">
+    <span class="fab fa-github fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://twitter.com/ashley_naimi">
+    <span class="fab fa-twitter fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://scholar.google.com/citations?user=hA7DPuMAAAAJ&amp;hl=en">
+    <span class="ai ai ai ai-google-scholar-square ai-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://stats.stackexchange.com/users/79490/ashley-naimi">
+    <span class="fab fa-stack-overflow fa-2x"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><br> <br> <br></p>
+<div id="setting-up-your-mac-for-scientific-computing" class="section level1">
+<h1>Setting Up Your Mac for Scientific Computing</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This document is a guide to setting up a new Apple computer to do data science in the causal research group. These steps should be followed in order.</p>
+<div id="homebrew" class="section level4">
+<h4>HomeBrew</h4>
+<p>The first software program to install is HomeBrew. This is an application manager for the MacOS system, and will allow you install and update several programs easily from the command line. Go to the Homebrew <a href="https://brew.sh/">website</a>:</p>
+<p><img src="figures/brew.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>Copy the most recent link, and paste it in the Terminal (see below) to install brew. Currently, the command to paste is:</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
+<p>But this may change with time. With brew installed, you can now easily install a host of other programs.</p>
+<p>If you’ve never used the Terminal before, it’s easy. Navigate to the “Utilities” sub-folder in the Applications folder. There you will find a program called ``Terminal.app’’</p>
+<p><img src="figures/terminal1.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>Open it. This is the native command line interface for MacOS. Paste the above link to install HomeBrew.</p>
+<p>To ensure HomeBrew has successfully been installed, you can type the following command in Terminal:</p>
+<pre><code>brew -v</code></pre>
+<p>Check to see that the above returns the latest version number. Additionally, you can type the following in Terminal to see if there were any issues with the install.</p>
+<pre><code>brew doctor</code></pre>
+</div>
+<div id="iterm2" class="section level4">
+<h4>iTerm2</h4>
+<p>Once HomeBrew is installed, the next step is to install a more advanced command line interface: iTerm2. This can be done easily by typing the following within terminal:</p>
+<pre><code>brew cask install iterm2</code></pre>
+<p>You can now open the iTerm2 app in the applications folder. To make the iTerm2 command line interface easier to use, there are a few steps that should be implemented. First, we’ll change the “key mappings.” Open up the preferences pane in iTerm2. Under the “Profiles” pane in the “keys” sub-pane, add the following key mappings (by clicking on the “+” icon):</p>
+<ul>
+<li>Delete all text to left of cursor: Delete, Send Hex Code, 0x15</li>
+<li>Delete one word to left of cursor: Delete, Send Hex Code, 0x01b 0x08</li>
+<li>Move cursor to beginning of line: , Send Hex Code, 0x01</li>
+<li>Move cursor to end of line: , Send Hex Code, 0x05</li>
+<li>Move cursor one word to left: , Send Hex Code, 0x1b 0x62</li>
+<li>Move cursor one word to right: , Send Hex Code, 0x1b 0x66</li>
+</ul>
+</div>
+<div id="command-line-tools" class="section level4">
+<h4>Command Line Tools</h4>
+<p>To do data science on an Apple computer, you’ll need to install Apple’s command line tools. This is easy in iTerm:</p>
+<pre><code>xcode-select --install</code></pre>
+</div>
+<div id="alfred" class="section level4">
+<h4>Alfred</h4>
+<p>An important element in working productively on a computer is finding tricks to optimize workflow. Alfred (<a href="https://www.alfredapp.com/">https://www.alfredapp.com/</a>) is an app that allows you to interact with your computer in efficient and effective ways.</p>
+<p>Alfred can be installed with Homebrew in iTerm2:</p>
+<pre><code>brew install --cask alfred</code></pre>
+<p>Once installed, you should set up a shortcut key to open Alfred with your keyboard. I like to use <code>Command + Space</code>, but this key combination is already in use by the MacOS Spotlight app. To make it work, open up system preferences and navigate to the Spotlight pane:</p>
+<p><img src="figures/spotlight.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>Click on “keyboard shortcuts”:</p>
+<p><img src="figures/spotlight2.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>And disable the “Show Spotlight search” option:</p>
+<p><img src="figures/spotlight3.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>Once these steps are completed, open Alfred preferences, place your cursor in the “Alfred Hotkey” box, and press the <code>Command + Space</code> keys.</p>
+<p><img src="figures/alfred1.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>You should now be able to open up the Alfred app with <code>Command + Space</code>.</p>
+<p>As a member of the ESCI group, you have access to the Alfred Power Pack. Please ask Ashley for the details. With the Power Pack installed, you will be able to install ``workflows,’’ which can make using your computer a lot easier. The first workflow to install is TerminalFinder:</p>
+<p><a href="http://www.packal.org/workflow/terminalfinder">http://www.packal.org/workflow/terminalfinder</a></p>
+<p>Once you download the TerminalFinder app, open up Alfred preferences, and drag and drop it on the ``Workflows’’ panel:</p>
+<p><img src="figures/TerminalFinder.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>With the TerminalFinder workflow, you should be able to navigate from a folder on your computer to the command line directory for that folder in iTerm2. For example, suppose you want to start writing a paper on competing risks. You create a folder on your computer called ``CompetingRisks’’: <img src="figures/cr_folder.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>If you navigate to that folder, it should be empty. From this folder, you should be able to press <code>Command + Space</code> and (with the TerminalFinder workflow installed) then type ``fi’’ (which stands for Finder <span class="math inline">\(\rightarrow\)</span> iTerm) and press enter. This should take to you the iTerm app, with the command line directed to the CompetingRisks folder: <img src="figures/cr_terminal.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>You can now create several files needed to start a project on competing risks directly from the command line (this process will be covered in a ``Project Workflow’’ document to be created)).</p>
+</div>
+<div id="git" class="section level4">
+<h4>git</h4>
+<p>Git is a version control software program that allows us to systematically track changes in code documents. There is already a version of git installed on all Apple computers, but it is an older version. To install the newer version, open up iTerm2. On the command line, simply type:</p>
+<pre><code>brew install git    </code></pre>
+<p>Be sure to restart your command line interface program (e.g., iTerm.app) and then run:</p>
+<pre><code>git --version</code></pre>
+<p>To verify that you are no longer running Apple’s git version, but the most updated version instead.</p>
+</div>
+<div id="latex" class="section level4">
+<h4>LaTeX</h4>
+<p>Once brew is installed, you can install LaTeX via brew by typing these into the command line:</p>
+<pre><code>brew cask install mactex</code></pre>
+<p>MacTex is a very large program, and this may take some time to install. You may opt to install other versions instead, such as BasicTex. However, I’ve found that I often just end up installing MacTex because it includes all the dependencies one might need to run Tex through various programs (e.g., RStudio). Some details can be found <a href="https://tex.stackexchange.com/questions/974/why-is-the-mactex-distribution-so-large-is-there-anything-smaller-for-os-x">here</a>.</p>
+</div>
+<div id="texpad" class="section level4">
+<h4>Texpad</h4>
+<p>With LaTeX installed, you may wish to install an app that allows you to write .tex code and simultaneously see what changes occur to the rendered .pdf file. Texpad is a great app for this.</p>
+<pre><code>brew cask install texpad</code></pre>
+<p>Once installed, you may have to install some dependencies, but in my experience Texpad does a good job at doing this for you.</p>
+</div>
+<div id="r-rstudio" class="section level4">
+<h4>R &amp; RStudio</h4>
+<p>There are a number of different ways to install <code>R</code> and <code>RStudio</code>, even in Homebrew. Here is the simplest way that should (not tested!) also install fast linear algebra routines:</p>
+<pre><code>brew install r
+brew cask install rstudio</code></pre>
+<p>TODO:</p>
+<ul>
+<li>A windows version?
+<ul>
+<li>Need a section on installing compilers for r to run, e.g., gcc, others.</li>
+<li>Sublime Text</li>
+<li>Docker</li>
+<li>GitLab?</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

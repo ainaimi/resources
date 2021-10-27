@@ -1,0 +1,40 @@
+
+<br>
+<br>
+<br>
+
+# Algorithmic Bias/Fairness Reading List
+
+Thanks to Alan Mishler and Edward Kennedy for pointing me to many/most of these.
+
+(Asterisks indicated “must reads”!)
+
+## Articles
+
+1) *https://fairmlbook.org/: a work-in-progress textbook by three well-known researchers. It does a good job summarizing the current landscape. Since fairness as a field is evolving rapidly, I'm hopeful that this textbook will continue to evolve as well. The other sources might quickly become dated.
+• Algorithmic Fairness: Choices, Assumptions, and Definitions (Mitchell et al, 2020): Another nice succinct overview of the current landscape.
+• The (Im)possibility of Fairness (Friedler et al, 2021): A framework for linking value judgments to quantitative fairness criteria.
+
+I like the following for somewhat contrarian takes on fairness. They argue against many of the prevailing approaches:
+
+• Escaping the "Impossibility of Fairness": From Formal to Substantive Algorithmic Fairness (Green, 2021): argues for expanding the frame of inquiry, from quantitative properties of algorithms to the systems they're embedded in.
+• The Age of Secrecy and Unfairness in Recidivism Prediction (Rudin et al, 2020): argues for fairness as a procedural property (e.g. transparency in the algorithm) rather than a property of the distribution of predictions.
+• The Measure and Mismeasure of Fairness: A Critical Review of Fair Machine Learning (Corbett-Davies & Goel, 2018): argues that many popular quantitative fairness criteria end up lowering everyone's utility, including the utility of the minority groups they're meant to protect
+
+
+## Notes
+
+Notes from a Stats course at NC State. Among other things, useful equations for calculating simulation error, and other estimands:
+
+1) [NCSU Notes](https://www4.stat.ncsu.edu/~davidian/st810a/simulation_handout.pdf)
+
+Notes from a short lecture at Emory on introduction to simulation:
+
+2) [Emory Notes](https://ainaimi.github.io/resources/Simulation_slides.html)
+
+
+## Books
+
+Technical and challenging to read (for non-math/stats), but chapters 1-3 have been very useful to me:
+
+1) Casella, George, and Christian P. Robert. "Monte Carlo Statistical Methods." (1999). Springer. New York, NY.
