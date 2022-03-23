@@ -24,7 +24,7 @@ ssh [username]@clogin01.sph.emory.edu
 
 where `[username]` should be replaced with your user name. If you enter the above on the command line (and are connected to the VPN), you should be prompted to enter a password. If it's your first time logging on, you will need to follow the instructions in the above user's guide. Otherwise, use the password you set at your first login and proceed. 
 
-If you're unfamiliar with the unix terminal, you may find that when you try to type in your password, it doesn't work (i.e., nothing visual gets typed into the console). However, you should know that unix/linux systems do not provide any indication that there is a password being entered (no dots or asterisks). For some context, see (here)[https://unix.stackexchange.com/questions/268006/why-is-the-password-i-entered-not-visible].
+If you're unfamiliar with the unix terminal, you may find that when you try to type in your password, it doesn't work (i.e., nothing visual gets typed into the console). However, you should know that unix/linux systems do not provide any indication that there is a password being entered (no dots or asterisks). For some context, see [here](https://unix.stackexchange.com/questions/268006/why-is-the-password-i-entered-not-visible).
 
 Once you enter the password, this should connect you to the cluster. You will know that you have successfully connected when you see the welcome page on your command line interface:
 
