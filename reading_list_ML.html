@@ -13,7 +13,7 @@
 
 <title>reading_list_ML.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +59,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css" type="text/css" />
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
@@ -84,6 +85,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -236,7 +240,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -305,33 +309,53 @@ $(document).ready(function () {
 <p>(Asterisks indicated “must reads”!)</p>
 <div id="articles" class="section level2">
 <h2>Articles:</h2>
-<p>Seminal work by Brieman on the distinction between a more classical statistical modeling approach and more recent “algorithmic” modeling approach.</p>
+<p>Seminal work by Brieman on the distinction between a more classical
+statistical modeling approach and more recent “algorithmic” modeling
+approach.</p>
 <ol style="list-style-type: decimal">
 <li>*Brieman (2001) Statistical Modeling: The Two Cultures.</li>
 </ol>
-<p>Excellent introduction to concepts and issues in using machine learning for epidemiologists.</p>
+<p>Excellent introduction to concepts and issues in using machine
+learning for epidemiologists.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>Bi et al (2019) What is Machine Learning?: A Primer for Epidemiologists</li>
+<li>Bi et al (2019) What is Machine Learning?: A Primer for
+Epidemiologists</li>
 </ol>
 <p>Attempt to demonstrate the fundamentals behind the super learner.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Naimi &amp; Balzer (2018) Stacked Generalization: An Introduction to Super Learning</li>
+<li>Naimi &amp; Balzer (2018) Stacked Generalization: An Introduction to
+Super Learning</li>
 </ol>
-<p>Detailed resource on using the super learner in real data settings.</p>
+<p>Detailed resource on using the super learner in real data
+settings.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Kennedy (2017) Guide to Super Learner. URL: <a href="https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html" class="uri">https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html</a></li>
+<li>Kennedy (2017) Guide to Super Learner. URL: <a
+href="https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html"
+class="uri">https://cran.r-project.org/web/packages/SuperLearner/vignettes/Guide-to-SuperLearner.html</a></li>
 </ol>
-<p>Important example of some fundamental constraints on using data with algorithms to predict outcomes fairly.</p>
+<p>Important example of some fundamental constraints on using data with
+algorithms to predict outcomes fairly.</p>
 <ol start="5" style="list-style-type: decimal">
-<li>Chouldechova (2016) Fair prediction with disparate impact: a study of bias in recidivism prediction instruments. <a href="https://arxiv.org/abs/1610.07524" class="uri">https://arxiv.org/abs/1610.07524</a></li>
+<li>Chouldechova (2016) Fair prediction with disparate impact: a study
+of bias in recidivism prediction instruments. <a
+href="https://arxiv.org/abs/1610.07524"
+class="uri">https://arxiv.org/abs/1610.07524</a></li>
 </ol>
-<p>Excellent introduction to machine learning (emphasis on econometrics but very useful for epidemiologists).</p>
+<p>Excellent introduction to machine learning (emphasis on econometrics
+but very useful for epidemiologists).</p>
 <ol start="6" style="list-style-type: decimal">
-<li>Mullainathan, S. and J. Spiess, Machine learning: an applied econometric approach. Journal of Economic Perspectives, 2017. 31(2): p. 87-106</li>
+<li>Mullainathan, S. and J. Spiess, Machine learning: an applied
+econometric approach. Journal of Economic Perspectives, 2017. 31(2):
+p. 87-106</li>
 </ol>
-<p>Important example of how ML algorithms can yield very misleading predictions when deeper aspects of the data-modeling complex are not taken into account.</p>
+<p>Important example of how ML algorithms can yield very misleading
+predictions when deeper aspects of the data-modeling complex are not
+taken into account.</p>
 <ol start="7" style="list-style-type: decimal">
-<li>Caruana, R., et al. Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission. in Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 2015. ACM.</li>
+<li>Caruana, R., et al. Intelligible Models for HealthCare: Predicting
+Pneumonia Risk and Hospital 30-day Readmission. in Proceedings of the
+21th ACM SIGKDD International Conference on Knowledge Discovery and Data
+Mining. 2015. ACM.</li>
 </ol>
 </div>
 <div id="books" class="section level2">
@@ -343,21 +367,28 @@ $(document).ready(function () {
 <li><p>Kuhn and Johnson (2016) Applied Predictive Modeling</p></li>
 </ol>
 </div>
-<div id="conceptualtheoretical-understanding-social-issues" class="section level2">
+<div id="conceptualtheoretical-understanding-social-issues"
+class="section level2">
 <h2>Conceptual/Theoretical Understanding &amp; Social Issues</h2>
 <ol style="list-style-type: decimal">
-<li><p>*Mitchell (2019) Artificial Intelligence: A Guide for Thinking Humans</p></li>
-<li><p>Broussard (2019) Artificial Unintelligence: How Computers Misunderstand the World</p></li>
+<li><p>*Mitchell (2019) Artificial Intelligence: A Guide for Thinking
+Humans</p></li>
+<li><p>Broussard (2019) Artificial Unintelligence: How Computers
+Misunderstand the World</p></li>
 </ol>
 </div>
 <div id="advanced-texts" class="section level2">
 <h2>Advanced Texts</h2>
 <ol style="list-style-type: decimal">
 <li><p>Wasserman (2006) All of Nonparametric Statistics</p></li>
-<li><p>Shalev-Schwartz and Ben-David (2014) Understanding Machine Learning: From Theory to Algorithms</p></li>
-<li><p>Efron and Hastie (2017) Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</p></li>
-<li><p>Hastie, Tibshirani, Friedman (2009) Elements of Statistical Learning</p></li>
-<li><p>James, Witten, Hastie, Tibshirani (2017) Introduction to Statistical Learning</p></li>
+<li><p>Shalev-Schwartz and Ben-David (2014) Understanding Machine
+Learning: From Theory to Algorithms</p></li>
+<li><p>Efron and Hastie (2017) Computer Age Statistical Inference:
+Algorithms, Evidence, and Data Science</p></li>
+<li><p>Hastie, Tibshirani, Friedman (2009) Elements of Statistical
+Learning</p></li>
+<li><p>James, Witten, Hastie, Tibshirani (2017) Introduction to
+Statistical Learning</p></li>
 </ol>
 </div>
 </div>

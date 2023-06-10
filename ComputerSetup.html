@@ -13,7 +13,7 @@
 
 <title>ComputerSetup.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -59,6 +59,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css" type="text/css" />
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
@@ -84,6 +85,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -236,7 +240,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -300,34 +304,56 @@ $(document).ready(function () {
 
 
 <p><br> <br> <br></p>
-<div id="setting-up-your-mac-for-scientific-computing" class="section level1">
+<div id="setting-up-your-mac-for-scientific-computing"
+class="section level1">
 <h1>Setting Up Your Mac for Scientific Computing</h1>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This document is a guide to setting up a new Apple computer to do data science in the causal research group. These steps should be followed in order.</p>
+<p>This document is a guide to setting up a new Apple computer to do
+data science in the causal research group. These steps should be
+followed in order.</p>
 <div id="homebrew" class="section level4">
 <h4>HomeBrew</h4>
-<p>The first software program to install is HomeBrew. This is an application manager for the MacOS system, and will allow you install and update several programs easily from the command line. Go to the Homebrew <a href="https://brew.sh/">website</a>:</p>
+<p>The first software program to install is HomeBrew. This is an
+application manager for the MacOS system, and will allow you install and
+update several programs easily from the command line. Go to the Homebrew
+<a href="https://brew.sh/">website</a>:</p>
 <p><img src="figures/brew.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>Copy the most recent link, and paste it in the Terminal (see below) to install brew. Currently, the command to paste is:</p>
+<p>Copy the most recent link, and paste it in the Terminal (see below)
+to install brew. Currently, the command to paste is:</p>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre>
-<p>But this may change with time. With brew installed, you can now easily install a host of other programs.</p>
-<p>If you’ve never used the Terminal before, it’s easy. Navigate to the “Utilities” sub-folder in the Applications folder. There you will find a program called ``Terminal.app’’</p>
+<p>But this may change with time. With brew installed, you can now
+easily install a host of other programs.</p>
+<p>If you’ve never used the Terminal before, it’s easy. Navigate to the
+“Utilities” sub-folder in the Applications folder. There you will find a
+program called ``Terminal.app’’</p>
 <p><img src="figures/terminal1.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>Open it. This is the native command line interface for MacOS. Paste the above link to install HomeBrew.</p>
-<p>To ensure HomeBrew has successfully been installed, you can type the following command in Terminal:</p>
+<p>Open it. This is the native command line interface for MacOS. Paste
+the above link to install HomeBrew.</p>
+<p>To ensure HomeBrew has successfully been installed, you can type the
+following command in Terminal:</p>
 <pre><code>brew -v</code></pre>
-<p>Check to see that the above returns the latest version number. Additionally, you can type the following in Terminal to see if there were any issues with the install.</p>
+<p>Check to see that the above returns the latest version number.
+Additionally, you can type the following in Terminal to see if there
+were any issues with the install.</p>
 <pre><code>brew doctor</code></pre>
 </div>
 <div id="iterm2" class="section level4">
 <h4>iTerm2</h4>
-<p>Once HomeBrew is installed, the next step is to install a more advanced command line interface: iTerm2. This can be done easily by typing the following within terminal:</p>
+<p>Once HomeBrew is installed, the next step is to install a more
+advanced command line interface: iTerm2. This can be done easily by
+typing the following within terminal:</p>
 <pre><code>brew cask install iterm2</code></pre>
-<p>You can now open the iTerm2 app in the applications folder. To make the iTerm2 command line interface easier to use, there are a few steps that should be implemented. First, we’ll change the “key mappings.” Open up the preferences pane in iTerm2. Under the “Profiles” pane in the “keys” sub-pane, add the following key mappings (by clicking on the “+” icon):</p>
+<p>You can now open the iTerm2 app in the applications folder. To make
+the iTerm2 command line interface easier to use, there are a few steps
+that should be implemented. First, we’ll change the “key mappings.” Open
+up the preferences pane in iTerm2. Under the “Profiles” pane in the
+“keys” sub-pane, add the following key mappings (by clicking on the “+”
+icon):</p>
 <ul>
 <li>Delete all text to left of cursor: Delete, Send Hex Code, 0x15</li>
-<li>Delete one word to left of cursor: Delete, Send Hex Code, 0x01b 0x08</li>
+<li>Delete one word to left of cursor: Delete, Send Hex Code, 0x01b
+0x08</li>
 <li>Move cursor to beginning of line: , Send Hex Code, 0x01</li>
 <li>Move cursor to end of line: , Send Hex Code, 0x05</li>
 <li>Move cursor one word to left: , Send Hex Code, 0x1b 0x62</li>
@@ -336,61 +362,109 @@ $(document).ready(function () {
 </div>
 <div id="command-line-tools" class="section level4">
 <h4>Command Line Tools</h4>
-<p>To do data science on an Apple computer, you’ll need to install Apple’s command line tools. This is easy in iTerm:</p>
+<p>To do data science on an Apple computer, you’ll need to install
+Apple’s command line tools. This is easy in iTerm:</p>
 <pre><code>xcode-select --install</code></pre>
 </div>
 <div id="alfred" class="section level4">
 <h4>Alfred</h4>
-<p>An important element in working productively on a computer is finding tricks to optimize workflow. Alfred (<a href="https://www.alfredapp.com/">https://www.alfredapp.com/</a>) is an app that allows you to interact with your computer in efficient and effective ways.</p>
+<p>An important element in working productively on a computer is finding
+tricks to optimize workflow. Alfred (<a
+href="https://www.alfredapp.com/">https://www.alfredapp.com/</a>) is an
+app that allows you to interact with your computer in efficient and
+effective ways.</p>
 <p>Alfred can be installed with Homebrew in iTerm2:</p>
 <pre><code>brew install --cask alfred</code></pre>
-<p>Once installed, you should set up a shortcut key to open Alfred with your keyboard. I like to use <code>Command + Space</code>, but this key combination is already in use by the MacOS Spotlight app. To make it work, open up system preferences and navigate to the Spotlight pane:</p>
+<p>Once installed, you should set up a shortcut key to open Alfred with
+your keyboard. I like to use <code>Command + Space</code>, but this key
+combination is already in use by the MacOS Spotlight app. To make it
+work, open up system preferences and navigate to the Spotlight pane:</p>
 <p><img src="figures/spotlight.png" width="500px" style="display: block; margin: auto;" /></p>
 <p>Click on “keyboard shortcuts”:</p>
 <p><img src="figures/spotlight2.png" width="500px" style="display: block; margin: auto;" /></p>
 <p>And disable the “Show Spotlight search” option:</p>
 <p><img src="figures/spotlight3.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>Once these steps are completed, open Alfred preferences, place your cursor in the “Alfred Hotkey” box, and press the <code>Command + Space</code> keys.</p>
+<p>Once these steps are completed, open Alfred preferences, place your
+cursor in the “Alfred Hotkey” box, and press the
+<code>Command + Space</code> keys.</p>
 <p><img src="figures/alfred1.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>You should now be able to open up the Alfred app with <code>Command + Space</code>.</p>
-<p>As a member of the ESCI group, you have access to the Alfred Power Pack. Please ask Ashley for the details. With the Power Pack installed, you will be able to install ``workflows,’’ which can make using your computer a lot easier. The first workflow to install is TerminalFinder:</p>
-<p><a href="http://www.packal.org/workflow/terminalfinder">http://www.packal.org/workflow/terminalfinder</a></p>
-<p>Once you download the TerminalFinder app, open up Alfred preferences, and drag and drop it on the ``Workflows’’ panel:</p>
+<p>You should now be able to open up the Alfred app with
+<code>Command + Space</code>.</p>
+<p>As a member of the ESCI group, you have access to the Alfred Power
+Pack. Please ask Ashley for the details. With the Power Pack installed,
+you will be able to install ``workflows,’’ which can make using your
+computer a lot easier. The first workflow to install is
+TerminalFinder:</p>
+<p><a
+href="http://www.packal.org/workflow/terminalfinder">http://www.packal.org/workflow/terminalfinder</a></p>
+<p>Once you download the TerminalFinder app, open up Alfred preferences,
+and drag and drop it on the ``Workflows’’ panel:</p>
 <p><img src="figures/TerminalFinder.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>With the TerminalFinder workflow, you should be able to navigate from a folder on your computer to the command line directory for that folder in iTerm2. For example, suppose you want to start writing a paper on competing risks. You create a folder on your computer called ``CompetingRisks’’: <img src="figures/cr_folder.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>If you navigate to that folder, it should be empty. From this folder, you should be able to press <code>Command + Space</code> and (with the TerminalFinder workflow installed) then type ``fi’’ (which stands for Finder <span class="math inline">\(\rightarrow\)</span> iTerm) and press enter. This should take to you the iTerm app, with the command line directed to the CompetingRisks folder: <img src="figures/cr_terminal.png" width="500px" style="display: block; margin: auto;" /></p>
-<p>You can now create several files needed to start a project on competing risks directly from the command line (this process will be covered in a ``Project Workflow’’ document to be created)).</p>
+<p>With the TerminalFinder workflow, you should be able to navigate from
+a folder on your computer to the command line directory for that folder
+in iTerm2. For example, suppose you want to start writing a paper on
+competing risks. You create a folder on your computer called
+``CompetingRisks’’:
+<img src="figures/cr_folder.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>If you navigate to that folder, it should be empty. From this folder,
+you should be able to press <code>Command + Space</code> and (with the
+TerminalFinder workflow installed) then type ``fi’’ (which stands for
+Finder <span class="math inline">\(\rightarrow\)</span> iTerm) and press
+enter. This should take to you the iTerm app, with the command line
+directed to the CompetingRisks folder:
+<img src="figures/cr_terminal.png" width="500px" style="display: block; margin: auto;" /></p>
+<p>You can now create several files needed to start a project on
+competing risks directly from the command line (this process will be
+covered in a ``Project Workflow’’ document to be created)).</p>
 </div>
 <div id="git" class="section level4">
 <h4>git</h4>
-<p>Git is a version control software program that allows us to systematically track changes in code documents. There is already a version of git installed on all Apple computers, but it is an older version. To install the newer version, open up iTerm2. On the command line, simply type:</p>
+<p>Git is a version control software program that allows us to
+systematically track changes in code documents. There is already a
+version of git installed on all Apple computers, but it is an older
+version. To install the newer version, open up iTerm2. On the command
+line, simply type:</p>
 <pre><code>brew install git    </code></pre>
-<p>Be sure to restart your command line interface program (e.g., iTerm.app) and then run:</p>
+<p>Be sure to restart your command line interface program (e.g.,
+iTerm.app) and then run:</p>
 <pre><code>git --version</code></pre>
-<p>To verify that you are no longer running Apple’s git version, but the most updated version instead.</p>
+<p>To verify that you are no longer running Apple’s git version, but the
+most updated version instead.</p>
 </div>
 <div id="latex" class="section level4">
 <h4>LaTeX</h4>
-<p>Once brew is installed, you can install LaTeX via brew by typing these into the command line:</p>
+<p>Once brew is installed, you can install LaTeX via brew by typing
+these into the command line:</p>
 <pre><code>brew cask install mactex</code></pre>
-<p>MacTex is a very large program, and this may take some time to install. You may opt to install other versions instead, such as BasicTex. However, I’ve found that I often just end up installing MacTex because it includes all the dependencies one might need to run Tex through various programs (e.g., RStudio). Some details can be found <a href="https://tex.stackexchange.com/questions/974/why-is-the-mactex-distribution-so-large-is-there-anything-smaller-for-os-x">here</a>.</p>
+<p>MacTex is a very large program, and this may take some time to
+install. You may opt to install other versions instead, such as
+BasicTex. However, I’ve found that I often just end up installing MacTex
+because it includes all the dependencies one might need to run Tex
+through various programs (e.g., RStudio). Some details can be found <a
+href="https://tex.stackexchange.com/questions/974/why-is-the-mactex-distribution-so-large-is-there-anything-smaller-for-os-x">here</a>.</p>
 </div>
 <div id="texpad" class="section level4">
 <h4>Texpad</h4>
-<p>With LaTeX installed, you may wish to install an app that allows you to write .tex code and simultaneously see what changes occur to the rendered .pdf file. Texpad is a great app for this.</p>
+<p>With LaTeX installed, you may wish to install an app that allows you
+to write .tex code and simultaneously see what changes occur to the
+rendered .pdf file. Texpad is a great app for this.</p>
 <pre><code>brew cask install texpad</code></pre>
-<p>Once installed, you may have to install some dependencies, but in my experience Texpad does a good job at doing this for you.</p>
+<p>Once installed, you may have to install some dependencies, but in my
+experience Texpad does a good job at doing this for you.</p>
 </div>
 <div id="r-rstudio" class="section level4">
 <h4>R &amp; RStudio</h4>
-<p>There are a number of different ways to install <code>R</code> and <code>RStudio</code>, even in Homebrew. Here is the simplest way that should (not tested!) also install fast linear algebra routines:</p>
+<p>There are a number of different ways to install <code>R</code> and
+<code>RStudio</code>, even in Homebrew. Here is the simplest way that
+should (not tested!) also install fast linear algebra routines:</p>
 <pre><code>brew install r
 brew cask install rstudio</code></pre>
 <p>TODO:</p>
 <ul>
 <li>A windows version?
 <ul>
-<li>Need a section on installing compilers for r to run, e.g., gcc, others.</li>
+<li>Need a section on installing compilers for r to run, e.g., gcc,
+others.</li>
 <li>Sublime Text</li>
 <li>Docker</li>
 <li>GitLab?</li>
