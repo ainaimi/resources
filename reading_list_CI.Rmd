@@ -3,19 +3,20 @@
 <br>
 <br>
 
-# Causal Inference Reading List (mostly books):
+# Causal Inference Reading List:
 
-(Asterisks indicated “must reads”!)
+## Introductory Articles:
+
+1) test
+
+## Advanced Articles:
+
 
 ## Introductory Books:
 
-1)	*Hernán MA, Robins JM (2020). Causal Inference: What If. Boca Raton: Chapman & Hall/CRC. 
-
-One of the most clearly written and comprehensive treatments of modern causal inference. A must read!
+1)	Hernán MA, Robins JM (2023). Causal Inference: What If. Boca Raton: Chapman & Hall/CRC. 
 
 2)	Cunningham (2021) Causal Inference: The Mixtape
-
-Very clearly written, with a focus / context in econometrics
 
 4) Pearl, Glymour, Jewell (2016) Causal Inference in Statistics: A Primer
 
