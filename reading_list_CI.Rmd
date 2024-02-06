@@ -7,33 +7,50 @@
 
 ## Introductory Articles:
 
-1) test
+- Hernán MA (2016) Does water kill? A call for less casual causal inferences. Ann Epidemiol. 2016 Oct; 26(10): 674–680.
 
-## Advanced Articles:
+- Naimi AI and Whitcomb BW. Defining and Identifying Average Treatment Effects. American Journal of Epidemiology. 2023 192(5): 685–687.
 
+- Naimi AI and Whitcomb BW. Defining and Identifying Local Average Treatment Effects. American Journal of Epidemiology. Forthcoming.
+
+- VanderWeele TJ and Hernán MA (2013) Causal Inference Under Multiple Versions of Treatment. J Causal Inference. 2013 May 1; 1(1): 1–20.
+
+- Murray EJ et al (2020) Causal survival analysis: A guide to estimating intention-to-treat and per-protocol effects from randomized clinical trials with non-adherence.
+
+- Dablander F (2020) Introduction to Causal Inference. https://osf.io/preprints/psyarxiv/b3fkw
+
+- Naimi et al (2017) Introduction to G Methods. International Journal of Epidemiology, Volume 46, Issue 2, April 2017, Pages 756–762
+
+- Glass et al (2013) Causal Inference in Public Health. Annual Review of Public Health. Volume 34: pp 61-75
+
+- Greenland S (2017) For and Against Methodologies: Some Perspectives on Recent Causal and Statistical Inference Debates. European Journal of Epidemiology. Volume 32, pages 3–20.
+
+## Intermediate/Advanced Articles:
+
+- Cole and Hernan (2008) Constructing Inverse Probability Weights for Marginal Structural Models. Am J Epidemiol. 15;168(6):656-64 
+
+- Greenland (1990) Randomization, Statistics, and Causal Inference. Epidemiology. 1990 Nov;1(6):421-9.
+
+- Diaz I (2020) Machine learning in the estimation of causal effects: targeted minimum loss-based estimation and double/debiased machine learning. Biostatistics. 21(2): 353–358.
+
+<!-- Rudolph K et al (2023) All models are wrong, but which are useful? Comparing parametric and nonparametric estimation of causal effects in finite samples. Journal of Causal Inference. 11: 20230022 -->
 
 ## Introductory Books:
 
-1)	Hernán MA, Robins JM (2023). Causal Inference: What If. Boca Raton: Chapman & Hall/CRC. 
+-	Hernán MA, Robins JM (2023). Causal Inference: What If. Boca Raton: Chapman & Hall/CRC. 
 
-2)	Cunningham (2021) Causal Inference: The Mixtape
+-	Cunningham (2021) Causal Inference: The Mixtape
 
-4) Pearl, Glymour, Jewell (2016) Causal Inference in Statistics: A Primer
+- Pearl, Glymour, Jewell (2016) Causal Inference in Statistics: A Primer
 
-5) Imbens and Rubin (2015) Causal Inference for Statistics, Social, and Biomedical Sciences
+- Imbens and Rubin (2015) Causal Inference for Statistics, Social, and Biomedical Sciences
 
-6) VanderWeele (2015) Explanation in Causal Inference: Methods for Mediation and Interaction
+- VanderWeele (2015) Explanation in Causal Inference: Methods for Mediation and Interaction. One of the best texts on methods for mediation analysis
 
-One of the best texts on methods for mediation analysis
+## Intermediate/Advanced Texts
 
-## Advanced Texts
+-	Pearl (2009) Causality: Models, Reasoning, and Inference
 
-1)	Pearl (2009) Causality: Models, Reasoning, and Inference
+- van der Laan and Rose (2011) Targeted Learning: Causal Inference for Observational and Experimental Data.
 
-2) van der Laan and Rose (2011) Targeted Learning: Causal Inference for Observational and Experimental Data.
-
-## Other
-
-3) Aronow and Miller (2019) Foundations of Agnostic Statistics. 
-
-Intermediate/advanced text on statistics. Chapter 7 is an excellent treatment of causal inference.
+- Aronow and Miller (2019) Foundations of Agnostic Statistics. Intermediate/advanced text on statistics. Chapter 7 is an excellent treatment of causal inference.
