@@ -1,0 +1,14 @@
+
+<br>
+<br>
+<br>
+
+# Files for IMCS @ SER2024:
+
+## PDF Notes:
+
+download compressed file [here](./pdf_documents.zip)
+
+## R Code:
+
+download compressed file [here](r_code.zip)
