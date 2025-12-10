@@ -1,0 +1,954 @@
+%!TEX program = lualatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %% 
+%% LaTeX to get the ``??'' replaced with the number of the last page  %% 
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fontawesome}
+\usepackage{academicons}
+\usepackage{pxfonts}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+
+%\usepackage{amsmath} % Some math symbols
+%\usepackage[margin = .85in]{geometry} % allows to set margins. Use "vmargin" package to get different sized margins.
+\usepackage{fancyhdr,lastpage} %these three change the page number style from normal to "fancy".
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{mdwlist}
+%\rfoot{Naimi, Ashley Isaac page~\thepage} %options include \lfoot \lhead \rhead. The Naimi AI~ text puts text that repeats (e.g., your name) with the page number in the right footer.
+%\renewcommand{\footrulewidth}{.5pt}
+\renewcommand\footrule{\begin{minipage}{1.175\textwidth}
+ \kern 1mm \hrule width \hsize   
+\end{minipage}\par}%
+\renewcommand{\headrulewidth}{0pt} %default is to put a line at top. This command tells latex to make that line 0pt font (i.e., to remove it).
+\pagenumbering{arabic} %arabic is the default. This command sets how page numbers appear. Capital "R" in Roman gives capital roman numerals. Lowercase "r" gives lowercase roman numerals. Good for toc, appendicies, etc. Alph/alph gives upper/lower case letters.
+\usepackage{subfig}
+\usepackage{mdwlist}
+\usepackage{url}
+\usepackage{verbatim}
+\urlstyle{same}
+\usepackage{multirow}
+%\usepackage{multicol}
+\newcommand{\MONTH}{%
+  \ifcase\the\month
+  \or Jan% 1
+  \or Feb% 2
+  \or Mar% 3
+  \or Apr% 4
+  \or May% 5
+  \or Jun% 6
+  \or Jul% 7
+  \or Aug% 8
+  \or Sept% 9
+  \or Oct% 10
+  \or Nov% 11
+  \or Dec% 12
+  \fi}
+\makeatletter
+\newcommand{\YEAR}{\@Roman{\the\year}}
+\makeatother
+\usepackage[compact]{titlesec}
+%\usepackage[colorlinks = TRUE, 
+%			urlcolor = lightblue, 
+%			linkcolor = lightblue, 
+%			citecolor = lightblue]{hyperref}
+
+%\renewcommand{\familydefault}{\sfdefault}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=.7in,              % .65 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{ashley.naimi@emory.edu \hspace{\footpageshift}%
+       \parbox{2in}{\hskip -1cm %
+                    Curriculum Vit\ae: \arabic{page} of \protect\pageref*{LastPage} % +LP
+                    \hfill \,} \parbox{2.5in}{\hskip 3.2cm \MONTH~\the\year \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+%\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=blue,urlcolor=blue,
+            anchorcolor=blue,citecolor=blue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\vspace{-1.6\baselineskip}\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section 
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{\large{Ashley Isaac Naimi, PhD}}
+
+\section{Contact}
+\newlength{\rcollength}\setlength{\rcollength}{2.2in}%
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip 0.175in Department of Epidemiology & {{\FA \faPhone} \hskip .08cm : 404.712.8332} \\
+\hskip 0.17in Rollins School of Public Health & {\FA \faEnvelope} : \href{mailto: ashley.naimi@emory.edu}{ashley.naimi@emory.edu} \\
+\hskip 0.17in Emory University & \\%{\FA \faHome} : \href{https://ainaimi.github.io/}{ https://ainaimi.github.io/} \\
+\hskip 0.17in 1518 Clifton Road & \\%{\aiOrcid} : 0000-0002-1510-8175 \\ 
+\hskip 0.17in Atlanta, GA 30322 & \\%{\FA \faTwitter} : @ashley\_naimi \\ 
+\hskip 0.17in  &  \\ 
+\hskip 0.17in  &   \ \\
+\end{tabular}
+\blankline
+\section{Appointments}
+\begin{outerlist}
+\item[] {\it Associate Professor} \hfill {2020 -- \textcolor{white}{2020}} \\ {\it Director of Graduate Studies, PhD Program} \hfill {2022 -- \textcolor{white}{2020}} \\ {Department of Epidemiology \\ Emory University}
+
+\item[] {\it Assistant Professor} \hfill {2015 -- 2020} \\ {Department of Epidemiology \\ University of Pittsburgh}
+
+\item[] {\it Associate Member} \hfill {2014 -- 2015} \\ {Department of Epidemiology, Biostatistics \& Occupational Health\\  McGill University }
+
+\item[] {\it Assistant Professor (Research) } \hfill {2014 -- 2015} \\ {Department of Obstetrics \& Gynecology \\ McGill University}
+\end{outerlist}
+\blankline
+\section{Education}
+\begin{outerlist}
+\item[] {\it Post-Doctoral Research Fellowship} \hfill {2012 -- 2013} \\ {Department of Epidemiology, Biostatistics, \& Occupational Health \\McGill University} 
+\item[] {\it Ph.D Epidemiology, Minor Biostatistics} \hfill {2008 -- 2012} \\ {Department of Epidemiology \\ University of North Carolina at Chapel Hill}
+\item[]  {\it M.Sc Community Health} \hfill {2006 -- 2008} \\ {Department of Social and Preventive Medicine \\ Universit\'{e} de Montr\'{e}al}  
+\item[] {\it B.Sc (Hon) Exercise Physiology} \hfill {2002 -- 2006} \\ {\it Minor Multidisciplinary Science Studies} \\ {Department of Exercise Science \\ Concordia University} 
+\end{outerlist}
+\blankline
+\section{Honors}
+\begin{outerlist}
+\item[] Lilienfeld Postdoctoral Prize Paper, \emph{Society for Epidemiologic Research}, Jun 2015.
+\item[] Top 10 Reviewers of the Year, \emph{American Journal of Epidemiology}, 2014, 2015
+\item[] Post-Doctoral Training Award (\$30,000 per annum) Fonds de Recherche en Sant\'{e} du Qu\'{e}bec, 2013-2015
+\item[] UNC Graduate Dissertation Fellowship (\$16,000), University of North Carolina at Chapel Hill, 2012-2013
+\item[] Berton H. Kaplan Student Publication Award (Best Student Paper in 2012), University of North Carolina at Chapel Hill, 2012
+\item[] Delta Omega Recognition of Service Award, University of North Carolina at Chapel Hill, 2012
+\item[] Doctoral Training Award (\$20,000 per annum), Fonds de Recherche en Sant\'{e} du Qu\'{e}bec, 2008-2011
+\item[] Graduate Training Award (\$15,000 per annum, Declined), Fonds de Recherche en Sant\'{e} du Qu\'{e}bec, 2007-2008
+\item[] Graduate Training Award (\$17,500 per annum), Canadian Institutes of Health Research, 2007
+\item[] Undergraduate Summer Award (\$4500), National Science and Engineering Research Council of Canada, 2006
+\item[] Undergraduate Award for Outstanding Scientific Achievement, Canadian Society for Exercise Physiology, 2006
+\item[] Undergraduate Summer Award (\$4500, Declined), National Science and Engineering Research Council of Canada, 2005
+\item[] Young Investigator Presentation Award, Mitochondrial Physiology Society, 2005
+\end{outerlist}
+\blankline
+\section{Media Coverage}
+\begin{outerlist}
+\item[] NYTimes: ``A ‘Baby’ Aspirin a Day May Help Prevent a Second Pregnancy Loss'', available \href{https://www.nytimes.com/2021/01/27/well/family/aspirin-pregnancy-miscarriage.html}{here}
+
+\item[] U.S. News and World Report: ``For Women Who've Miscarried, Aspirin Before, During Pregnancy Could Improve Outcomes'', available \href{https://www.usnews.com/news/health-news/articles/2021-01-26/for-women-whove-miscarried-aspirin-before-during-pregnancy-could-improve-outcomes}{here}
+
+\item[] Healio Medical News: ``Low-dose aspirin improves chances of pregnancy after miscarriage'', available \href{https://www.healio.com/news/primary-care/20210125/lowdose-aspirin-improves-chances-of-pregnancy-after-miscarriage}{here}
+
+\item[] Healthline Medical News: ``Low-Dose Aspirin May Help Pregnant People With History of Pregnancy Loss'', available \href{https://www.healthline.com/health-news/low-dose-aspirin-may-help-pregnant-women-with-history-of-pregnancy-loss#Low-dose-aspirin-can-improve-pregnancy-outcomes-in-at-risk-people}{here}
+
+\end{outerlist}
+\blankline
+\section{Funded Grants}
+\begin{outerlist}
+
+\item[] Identifying optimal dietary patterns for postpartum cardiovascular disease prevention (co-PIs: Naimi AI and Bodnar LM). NIH R01HL174652. 2025-2029
+
+\item[] Identifying, selecting, and utilizing qualitative bias analysis methods (Project Co-PIs: Liew Z and Wallach JD). US FDA (Yale-Mayo Center of Excellence in Regulatory Science and Innovation, Ross JS and Jeffery MM, Center Co-PIs). U01FD005938. 2024-2025
+
+\item[] Iodine Deficiency: Novel assessment methods and implications for reproductive health. (Total Direct Costs \$ 2,276,619; PI: Hinkle SN). NIH R01. 2023-2028.  %10\% effort, 5 years.
+
+\item[] Informing national guidelines on diet patterns that promote healthy pregnancy outcomes (co-PIs: Naimi AI and Bodnar LM). NIH R01HD098130. 2020-2025. %34\% Effort.
+
+\item[] Evaluating the intersection between sexually transmitted infections, inflammation and reproductive success ( PI: Taylor BD). NIH R01AI143653. 2020-2025. %13\% Effort.
+
+\end{outerlist}
+
+%\blankline
+%\section{Pending Grants}
+%\begin{outerlist}
+
+%\item[] Nonparametric Per Protocol Effect Estimation in Randomized Trials. PCORI Contract. Improving Methods for Conducting Patient-Centered Comparative Clinical Effectiveness Research. Cycle 2. Submitted Sept 2024.
+
+%\item[] Robust Protocols for Causal Effect Estimation with Machine Learning. NIH R01. National Library of Medicine. Submitted Oct 2024.
+
+%\item[] Comparative effectiveness of treatments for comorbid atrial fibrillation and heart failure. (Total Direct Costs \$ ; PI: Alonso A). NIH R01. Submitted Sept 2022. %10\% effort, 5 years.
+
+%\item[] Fetal sexual dimorphism in maternal immune responses in early pregnancy. (Total Direct Costs \$ ; PI: Taylor B). NIH R01. Submitted June 2022. %20\% effort, 5 years.
+
+%\item[] Pharmacometabolomics to understand the etiology of pregnancy loss and inform treatment strategies (Total Direct Costs \$ 2,276,619; PI: Hinkle SN). NIH R01. Submitted Feb 2022. (Impact Score 46, Percentile 39) %20\% effort, 5 years.
+
+%\item[] Dynamic lifestyle interventions across pregnancy to optimize weight gain and improve maternal and child health (Total Direct Costs \$ 2,477,514; PI: Hinkle S). NIH R01. Submitted Feb 2022. (Impact Score 48, Percentile 42). %40\% effort, 5 years.
+
+%\item[] APpLe: Appropriate Pregnancy Weight Gain with Dynamic Lifestyle IntErventions (Total Direct Costs \$2,445,909.00; PI: Hinkle S). PCORI Contract. Submitted Feb 2022. %15\% effort, 5 years.
+
+%\item[] The Per Protocol Effect of Zinc and Folic Acid on Semen Quality and Birth Outcomes (Total Direct Costs \$ 2,734,202; PI: {\bf Naimi AI}). NIH R01. Submitted June 2022. %50\% effort, 5 years.
+
+%\item[] Estimating the effect of omega-3 supplementation on recurrent preterm birth in a trial with noncompliance (Total Direct Costs \$ 2,477,514; co-PIs: Bodnar LM \& {\bf Naimi AI}). NIH R01. Submitted October 2022. %40\% effort, 5 years.
+
+%\item[] Ideal weight gain in pregnancy to prevent pregnancy loss and preterm birth (Total Direct Costs \$ XXXX; PI: Hinkle SN). Burroughs Wellcome Fund. 6\% effort, 1 year. Submitted Feb 2022.
+
+%\item[] Machine Learning Methods for Heterogeneity Detection in Generalized Causal Inference Problems (\$ 70,000; PI: {\bf Naimi AI}). AWS Machine Learning Research Award. Submitted October 2021.
+
+%\item[] A couples-based approach to evaluating the impact of dietary patterns on fertility (Total Direct Costs \$ 2,554,124; PI: Mumford S). NIH R01. Submitted Feb 2022. %15\% effort, 5 years.
+
+%\item[] Sperm mitochondrial biomarkers and male reproductive health (Total Direct Costs \$ 2,554,124; PI: Whitcomb B) NIH R01. Submitted Feb 2022.
+
+%Telehealth and SMM RCT, EC, ES, SH, SM, AN	PCORI
+
+%\item[] Instrumental Variable-Based Estimators for Complex Longitudinal Data (Total Direct Costs \$ 2,554,177; co-PI: {\bf Naimi AI} \& Kennedy EH). NIH R01. 30\% effort. In Preparation.
+
+%\item[] Project PreMe: A predictive analytics framework for preterm birth (Total Direct Costs \$ 2,218,504; PI: {\bf Naimi AI}). NIH R01HD100424-01. 40\% effort. Submitted.
+
+%\item[] Identifying opportunities to reduce the burden of severe maternal morbidity among obese women (PI: Bodnar LM). NIH R01HD097105. 20\% effort. Submitted. 
+
+%\end{outerlist}
+
+\blankline
+\section{Completed Grants}
+\begin{outerlist}
+
+\item[] Novel Methods for Heterogeneity Detection in Environmental Epidemiology (PI: Naimi AI). HERCULES Pilot, Emory University. 2022-2023. %2.5\% Effort.
+
+\item[] Patient and System-Level Determinants of Oral Anticoagulation Use in Atrial Fibrillation (PI: Hernandez I). NHLBI 1K01HL142847-01. Project Period: 07/15/2018-06/30/2023. %0\% effort.
+
+\item[] Estimating the Effect of Low-Dose Aspirin on Fetal Loss in a Trial with Non-Compliance (\$1,198,281; PI: Naimi AI). NIH R01HD093602. 2018-2022. %50\% Effort.
+
+\item[] Effects of NSAIDS and Non-NSAID Analgesics on Osteoarthritis Outcomes (PI: Jafarzadeh, R). NIA R03 AG060272. Project Period: 1-SEP-2018 - 31-MAY-2020. %0\% effort.
+
+\item[] Impact of paternal age on the health of gametes: risk of potential adverse outcomes (\$1,494,120; PI: Robaire B) Canadian Institutes of Health Research, Team Grant, 2015-2020
+
+\item[] Modeling Partial Non-Compliance in Clinical Trials. (\$25,000; PI: Naimi, AI). NIH Clinical Translational Science Institute. Project Period: 2017.
+
+\item[] Causal Modeling of Recurrent Injury Data (\$ 362,499; PI: Steele R) Canadian Institutes of Health Research --- NSERC Partnered, Collaborative Health Research Projects, 2014-2017
+
+\item[] Maternal hypertension and infant health: Burden of disease and mediating role of preterm birth (\$122,758; PI: Auger N) Canadian Institutes of Health Research, Operating Grant, 2014-2016
+
+\end{outerlist}
+\blankline
+\section{Publications}
+\begin{outerlist}
+
+\item[] ($\star$ Denotes Doctoral or Post-Doctoral Trainee.)
+
+\item[118.] {\bf Naimi AI}, Benkeser D, Rudolph JE. Computing True Parameter Values in Simulation Studies Using Monte Carlo Integration. \emph{Epidemiol}. Accepted March 11 2025.
+
+\item[117.] Bodnar LM, Jin Q, {\bf Naimi AI}, Simhan HN, Catov JM, Parisi SM, Kirkpatrick SI. Periconceptional Dietary Quality and Metabolic Syndrome at 3 Years Postpartum. JAHA. 2024 Aug 20;13(16):e035555. doi: 10.1161/JAHA.124.035555. Epub 2024 Aug 19.
+
+\item[116.] Shi X, Liu Z, Zhang M, Hua W, Li J, Lee JY, Dharmarajan S, Nyhan K, {\bf Naimi AI}, Lash TL, Jeffery MM, Ross JS, Liew Z, Wallach JD. Quantitative bias analysis methods for summary-level epidemiologic data in the peer-reviewed literature: a systematic review. \emph{J Clin Epidemiol}. 2024 Nov;175:111507. doi: 10.1016/j.jclinepi.2024.111507
+
+\item[115.] Chen YN, Zhou J, Kirkham HS, Witt EA, Jenness SJ, Wall KM,  Kamaleswaran R, Naimi AI, Siegler AJ. Understanding Typology of Preexposure Prophylaxis (PrEP) Persistence Trajectories Among Male PrEP Users in the United States. \emph{Open Formum Infect Dis}. 2024 Oct 11;11(11):ofae584. doi: 10.1093/ofid/ofae584.
+
+\item[114.] Barberio J,$^{\star}$ {\bf Naimi AI}, Patzer RE, Kim C, Hernandez RK, Brookhart MA, Gilbertson D, Bradbury BD, Lash TL. RE: "Invited Commentary: Influence of Incomplete Death Information on Cumulative Risk Estimates in United States Claims Data". 2025 Jan 3:kwae229. doi: 10.1093/aje/kwae229
+
+\item[113.] Zheng Z, Kennedy EH, Bodnar LM, {\bf Naimi AI}. Efficient Generalization and Transportation. \emph{Statistical Science}. Accepted for Publication, Dec 29 2024.
+
+\item[112.] {\bf Naimi AI}, Yu YH, Bodnar LM. Pseudo-Random Number Generator Influences on Average Treatment Effect Estimates Obtained with Machine Learning. \emph{Epidemiol}. 2024 Nov 1;35(6):779-786. doi: 10.1097/EDE.0000000000001785. Epub 2024 Aug 16.
+
+\item[111.] Schiff MD$^{\star}$, Barinas-Mitchell E, Brooks MM, Mair CF, Méndez DD, {\bf Naimi AI}, Reeves A, Hedderson M, Janssen I, Fabio A. Longitudinal exposure to Neighborhood Concentrated Poverty Contributes to Differences in Adiposity in Midlife Women. \emph{J Womens Health}. 2024; Jul 1 doi: 10.1089/jwh.2023.1156.
+
+\item[110.] Barberio J,$^{\star}$ Lash TL, Nooka AK, {\bf Naimi AI}, Patzer RE, Kim C. Real-World Risk of Severe Cytopenias in Multiple Myeloma Patients Sequentially Treated with Immunomodulatory Drugs. Acta Haematol. 2024 May 10. doi: 10.1159/000539127. Online ahead of print.
+ 
+\item[109.] Barberio J,$^{\star}$ {\bf Naimi AI}, Patzer RE, Kim C, Hernandez RK, Brookhart MA, Gilbertson D, Bradbury BD, Lash TL. Influence of Incomplete Death Information on Cumulative Risk Estimates in United States Claims Data. \emph{Am J Epidemiol.} 2024 Apr 6:kwae034.
+
+\item[108.] Alonso A, Morris AA, {\bf Naimi AI}, Alam AB, Li L, Subramanya V, Chen LY, Lutsey PL. Use of Sodium-Glucose Cotransporter-2 Inhibitors and Angiotensin Receptor-Neprilysin Inhibitors in Patients With Atrial Fibrillation and Heart Failure From 2021 to 2022: An Analysis of Real-World Data. \emph{J Am Heart Assoc.} 2024 Mar 19;13(6):e032783. 
+
+\item[107.] Barberio J,$^{\star}$ Hernandez RK, {\bf Naimi AI}, Patzer RE, Kim C, Lash TL. Characterizing Fit-for-Purpose Real-World Data: An Assessment of a Mother-Infant Linkage in the Japan Medical Data Center Claims Database. \emph{Clin Epidemiol.}  2024 Jan 31;16:31-43.
+
+\item[106.] Bodnar LM, Kirkpatrick SI, Parisi SM, Jin Q, {\bf Naimi AI}. Periconceptional Dietary Patterns and Adverse Pregnancy and Birth Outcomes. J Nutr. 2024 Feb;154(2):680-690.
+
+\item[105.] Alonso A, Morris AA, {\bf Naimi AI}, Alam AB, Li L, Subramanya V, Chen LY, Lutsey PL. Use of SGLT2i and ARNi in patients with atrial fibrillation and heart failure in 2021-2022: an analysis of real-world data.\emph{J Am Heart Assoc.} 2024 Mar 19;13(6):e032783.
+
+\item[104.] Petersen JM,$^{\star}$ {\bf Naimi AI}, Bodnar LM. Does heterogeneity underlie differences in treatment effects estimated from SuperLearner versus logistic regression? An application in nutritional epidemiology. \emph{Ann Epidemiol}. 2023 Jul;83:30-34.
+
+\item[103.] Bodnar LM, Kirkpatrick SI, Roberts JM, Kennedy EH, {\bf Naimi AI}. Is the Association Between Fruits and Vegetables and Preeclampsia Due to Higher Dietary Vitamin C and Carotenoid Intakes? \emph{Am J Clin Nutr}. 2023 Aug;118(2):459-467.
+
+\item[102.] Bodnar LM, Odoms-Young A, Kirkpatrick SI, {\bf Naimi AI}, Petersen JM, Martin CL. Experiences of racial discrimination and periconceptional diet quality. \emph{Journal of Nutrition}. 2023 Aug;153(8):2369-2379
+
+\item[101.] Schiff MD$^{\star}$, Mair CF, Barinas-Mitchell E, Brooks MM, Méndez DD, {\bf Naimi AI}, Reeves A, Hedderson M, Janssen I, Fabio A. Longitudinal profiles of neighborhood socioeconomic vulnerability influence blood pressure changes across the female midlife period. \emph{Health \& Place}. 2023;82:103033.
+
+\item[100.] Islek D$^{\star}$, Alonso A, Rosamond W, Guild CS, Butler KR, Ali MK, Manatunga A, {\bf Naimi AI}, Vaccarino V. Racial Differences in Fatal Out-of-Hospital Coronary Heart Disease and the Role of Income in the Atherosclerosis Risk in Communities Cohort Study (1987 to 2017). \emph{Am J Cardiol}. 2023; (23): 00050-4
+
+% \item[100.] Petersen JM$^{\star}$, Bodnar LM, {\bf Naimi AI}, Kirkpatrick SI. Equal Weighting of the Healthy Eating Index-2010 Components May Not be Appropriate for Pregnancy. \emph{J Nutr}. 2022;152(8):1886-1894.
+
+\item[99.] Bodnar LM, Petersen JM$^{\star}$, {\bf Naimi AI}, Kirkpatrick SI. Pregnant people in a large US cohort study do not meet federal nutrition guidelines. \emph{AJOG}. 2023;5(1):100772
+
+\item[98.] Rudolph JE$^{\star}$, Kim K, Kennedy EH, {\bf Naimi AI}. Estimation of the time-varying incremental effect of low dose aspirin on incidence of pregnancy. \emph{Epidemiol}. 2023 Jan 1;34(1):38-44.
+
+\item[97.] Bodnar LM, Kirkpatrick SI, {\bf Naimi AI}. Machine learning can improve the development of evidence-based dietary guidelines. \emph{Public Health Nutr}. 2022;25(9):2566-2569
+
+\item[96.] Cartus AR, {\bf Naimi AI}, Himes KP, Jarlenski M, Parisi SM, Bodnar LM. Can Ensemble Machine Learning Improve the Accuracy of Severe Maternal Morbidity Screening in a Perinatal Database? \emph{Epidemiol}. 2022;33(1):95-104
+
+\item[95.] Rudolph JE$^{\star}$, Schisterman EF, {\bf Naimi AI}. A simulation study comparing the performance of time-varying inverse probability weighting and g-computation in survival analysis. \emph{Am J Epidemiol}. 2023 Jan 6;192(1):102-110.
+
+\item[94.] Taylor BD, Hill AV, Perez-Patron MJ, Haggerty CL, Schisterman EF, {\bf Naimi AI}, Noah A, Comeaux CR. Sexually transmitted infections and risk of hypertensive disorders of pregnancy. \emph{Scientific Reports} Sci Rep. 2022 Aug 16;12(1):13904.
+
+\item[93.] Petersen JM$^{\star}$, {\bf Naimi AI}, Kirkpatrick SI, Bodnar, LM. Equal Weighting of the Healthy Eating Index-2010 Components May Not be Appropriate for Pregnancy \emph{Journal of Nutrition}. 2022 Aug 9;152(8):1886-1894. 
+
+\item[92.] Bodnar LM, Cartus AR, Kennedy EH, Kirkpatrick SI, Parisi SM, Himes KP, Parker CB, Grobman WA, Simhan HN, Silver RM, Wing DA, Perry S, {\bf Naimi, AI}. A doubly robust machine learning-based approach to evaluate body mass index as a modifier of the association between fruit and vegetable intake and preeclampsia. \emph{Am J Epidemiol}. 2022 Jul 23;191(8):1396-1406
+
+\item[91.] Rudolph JE$^{\star}$, Benkeser D, Kennedy EH, Schisterman EF, {\bf Naimi AI}. Estimation of the Average Causal Effect in Longitudinal Data with Time-Varying Exposures: The Challenge of Nonpositivity and the Impact of Model Flexibility. \emph{Am J Epidemiol}. 2022 Oct 20;191(11):1962-1969.
+
+\item[90.] Kim K, Kennedy EH, {\bf Naimi AI}. Incremental Intervention Effects in Studies with Many Timepoints, Repeated Outcomes, and Dropout. \emph{Journal of Causal Inference}. 2021. https://doi.org/10.1515/jci-2020-0031.
+
+\item[89.] Bodnar LM, Cartus A, Kennedy EH, Kirkpatrick S, Parisi S, Himes K, Parker C, Grobman W, Simhan H, Silver R, Wing D, {\bf Naimi AI}. A doubly robust machine learning-based approach to evaluate modifiers of the association between fruit and vegetable intake and preeclampsia. \emph{Am J Epidemiol}. 2022 Jul 23;191(8):1396-1406.
+
+\item[88.] Mokhayeri Y, Nazemipour M, Mansournia MA,  {\bf Naimi AI}, Kaufman JS. Does Weight Mediate the Effect of Smoking on Coronary Heart Disease? Parametric Mediational G-Formula Analysis. \emph{PLOS One}. 2022; 17(1):e0262403.
+
+\item[87.] Rudolph JE$^{\star}$, Cartus A, Bodnar LM, Schisterman EF, {\bf Naimi AI}. The role of the natural course in causal analysis. \emph{Am J Epidemiol}. 2022 Jan 24;191(2):341-348.
+
+\item[86.] Zhong Y$^{\star}$, Kennedy EH, Bodnar LM, {\bf Naimi AI}. AIPW: An R Package for Augmented Inverse Probability Weighted Estimation of Average Causal Effects. \emph{Am J Epidemiol}. 2021 Dec 1;190(12):2690-2699.
+
+\item[85.] Conzuelo-Rodriguez G$^{\star}$, Bodnar LM, Brooks MM, Wahed A, Kennedy EH, {\bf Naimi AI}. Performance evaluation of parametric and nonparametric methods when assessing effect measure modification. \emph{Am J Epidemiol}. 2022 Jan 1;191(1):198-207
+
+\item[84.] {\bf Naimi AI}, Perkins NJ, Mumford SL, Sjaarda LA, Platt RW, Silver RM, Schisterman EF. The per protocol effect of preconception-initiated low-dose aspirin on conception, pregnancy loss, and live birth. \emph{Ann Int Med}. 2021 May;174(5):595-601.
+
+\item[83.] Rudolph JE$^{\star}$, {\bf Naimi AI}, Edwards JK, Cole SR, Westreich DJ. Simulation in Practice: the balancing intercept. \emph{Am J Epidemiol}. 2021 Aug 1;190(8):1696-1698. 
+ 
+
+\item[82.] {\bf Naimi AI}, Mishler A, Kennedy EH. Challenges in Obtaining Valid Causal Effect Estimates with Machine Learning Algorithms. \emph{Am J Epidemiol}. 2023; 192(9): 1536–1544.
+
+\item[81.] {\bf Naimi AI}, Rudolph JE, Kennedy EH, Cartus A, Kirkpatrick SI, Haas DM, Simhan H, Bodnar LM. Incremental propensity score estimation for time-fixed exposures. \emph{Epidemiol}. 2021 Mar 1;32(2):202-208.
+
+\item[80.] Rudolph JE$^{\star}$, Fox MP, {\bf Naimi AI}. Simulation as a tool for teaching and learning epidemiologic methods. \emph{Am J Epidemiol}. 2021 May 4;190(5):900-907. 
+
+
+\item[79.] Mansournia M, Nazemipour M, {\bf Naimi AI}, Collins G, Campbell MJ. Demystifying robust standard errors. \emph{Int J Epidemiol}. 2021 Mar 3;50(1):346-351. 
+
+
+\item[78.] Rudolph JE$^{\star}$, Lesko CR, {\bf Naimi AI}. Causal Inference in the Face of Competing Events. \emph{Curr Epidemiol Rep}. 2020 Sep;7(3):125-131.
+
+\item[77.] Cole SR, Edwards JK, {\bf Naimi AI}, Munoz AM. Hidden Imputations and the Kaplan Meier Estimator. \emph{Am J Epidemiol}. 2020 Nov 2;189(11):1408-1411. 
+
+
+\item[76.] Rudolph JE$^{\star}$, {\bf Naimi AI}, Westreich DJ, Kennedy EH, Schisterman EF. Defining, Identifying, and Estimating Per Protocol Effects. \emph{Epidemiology}. 2020 Sep;31(5):692-694.
+
+\item[75.] DeVilbiss EA, {\bf Naimi AI}, Mumford SL, Perkins NJ, Sjaarda LA, Zolton JR, Silver RM, Schisterman EF. Vaginal bleeding and nausea in early pregnancy as predictors of clinical pregnancy loss. \emph{AJOG}. 2020 Oct;223(4):570.e1-570.e14. 
+
+\item[74.] Bodnar LM, Cartus AR, Kirkpatrick SI, Himes KP, Kennedy EH, Simhan HN, Grobman WA, Duffy JY, Silver RM, Parry S, {\bf Naimi AI}. Machine learning as a strategy to account for dietary synergy: an illustration based on dietary intake and adverse pregnancy outcomes. \emph{AJCN}. 2020 Jun 1;111(6):1235-1243. 
+
+\item[73.] Mokhayeri Y, Hashemi-Nazari SS, Khodakarim S, Safiri S, Mansournia N, Mansournia MA, Kaufman JS, {\bf Naimi AI}. Effects of Hypothetical Interventions on Ischemic Stroke Using Parametric G-Formula. \emph{Stroke}. 2019;50:3286–3288.
+
+\item[72.] Lin HHS*, {\bf Naimi AI}, Brooks MM, Richardson GA, Burke JG, Bromberger JT. Life-course impact of child maltreatment on midlife health-related quality of life in women: longitudinal mediation analysis for potential pathways. \emph{Ann Epidemiol}. 2020 Mar:43:58-65.
+
+\item[71.] Yu YH$^{\star}$, Filion K, Bodnar LM, Brooks M, Platt RW, Himes K, {\bf Naimi AI}. Visualization tool of variable selection in bias--variance tradeoff for inverse probability weights. \emph{Ann Epidemiol}. 2020 Jan:41:56-59. 
+
+\item[70.] Guo J, {\bf Naimi AI}, Brooks M, Muldoon M, Orchard T, Costacou T. Mediation analysis for estimating cardioprotection of longitudinal RAS inhibition beyond lowering blood pressure and albuminuria in type 1 diabetes. \emph{Ann Epidemiol}. 2020 Jan:41:7-13.e1. 
+
+\item[69.] Cartus AR$^{\star}$, Bodnar LM, {\bf Naimi AI}. The impact of undersampling on the predictive performance of logistic regression and machine learning algorithms: A simulation study. \emph{Epidemiol}. 2020 Sep;31(5):e42-e44.
+
+\item[68.] Yu YH$^{\star}$, Bodnar LM, Brooks MM, Himes KP,  {\bf Naimi AI}. Association of Overweight and Obesity Development Between Pregnancies With Stillbirth and Infant Mortality in a Cohort of Multiparous Women. \emph{Ob Gyn}. 2020 Mar;135(3):634-643.
+
+\item[67.] Robinson WW, Renson A, {\bf Naimi AI}. Teaching yourself about structural racism will improve your machine learning. \emph{Biostatistics}. 2020 Apr 1;21(2):339-344. 
+
+\item[66.] Guo J, Brooks MM, Muldoon MF, {\bf Naimi AI}, Orchard TJ, Costacou T. Optimal Blood Pressure Thresholds for Minimal Coronary Artery Diabetes Risk in Type 1 Diabetes. \emph{Diabetes Care}. 2019 Sep;42(9):1692-1699.
+
+\item[65.] Agrawala A, Sjaarda LA, Omosigho UR, Perkins NJ, Silver RM, Mumford SL, Connell MT, {\bf Naimi AI}, Halvorson LM, Schisterman EF. Effect of preconception low dose aspirin on pregnancy and live birth according to socioeconomic status: a secondary analysis of a randomized clinical trial. \emph{PLoS One}. 2019 Apr 18;14(4):e0200533.
+
+\item[64.] Yu YH$^{\star}$, Bodnar LM, Brooks MM, Himes KP,  {\bf Naimi AI}. Re: The causal association between obesity and stillbirth: strengths and limitations of the consecutive pregnancies approach. \emph{Am J Epidemiol}. 2019 188(7); 1343–1344.
+
+\item[63.] Yu YH$^{\star}$, Bodnar LM, Brooks MM, Himes KP,  {\bf Naimi AI}. Nonparametric estimation of the association of incident prepregnancy obesity with stillbirth and infant mortality in a population-based cohort. \emph{Am J Epidemiol}. 2019 188(7);1328–1336.
+
+\item[62.] {\bf Naimi AI}. Commentary: Obtaining Actionable Inferences from Epidemiologic Actions. \emph{Epidemiol}. 2019 Mar;30(2):243-245.
+
+\item[61.] Mansournia MA, {\bf Naimi AI}, Greenland S. The Implications of Using Lagged and Baseline Exposure Terms in Longitudinal Causal and Regression Models. \emph{ Am J Epidemiol}. 2019 Apr 1;188(4):753-759.
+
+\item[60.] Lin HHS, {\bf Naimi AI}, Brooks MM, Richardson GA, Burke JG, Bromberger JT. Childhood maltreatment as a social determinant of midlife health-related quality of life in women: Do psychosocial factors explain this association? \emph{Quality of Life Research} 2018; 27(12):3243-3254. PMID: 30121897.
+
+\item[59.] {\bf Naimi AI} and Balzer L. Stacked Generalization: An Introduction to Super Learning. \emph{Eur J Epidemiol}. 2018. 33(5):459-464.
+
+\item[58.] Riverin BD, Strumpf EC, {\bf Naimi AI}, Li P. Optimal Timing of Physician Visits after Hospital Discharge to Reduce Readmission. \emph{Health Serv Res}. 2018;53(6):4682-4703.
+
+\item[57.] Richardson DB, Kinlaw AC, Keil AP, {\bf Naimi AI}, Kaufman JS, Cole SR. Inverse-probability weights for the analysis of polytomous outcomes. \emph{Am J Epidemiol}. 187(5):1125-1127
+
+\item[56.] Zhang X, Tilling K, Martin RM, Oken E, {\bf Naimi AI}, Young JG, Aris IM, Yang S, Kramer MS. Analysis of ``Sensitive'' Periods of Fetal and Child Growth. \emph{IJE}. 2019; 48(1):116–123.
+
+\item[55.] Nobles C, Mendola P, {\bf Naimi AI}, Yeung E, Kim K, Park H, Silver  R, Perkins N, Sjaarda L, Schisterman E. Preconception blood pressure levels and reproductive outcomes in a prospective cohort study of women attempting pregnancy. \emph{Hypertension}. 71(5):904-910.
+
+\item[54.] Lemon LS, {\bf Naimi AI}, Caritis SN, Platt RW, Venkataramanan R, Bodnar LM. The role of preterm birth in the association between opioid maintenance therapy and neonatal abstinence syndrome. \emph{PP\&E}. 32(2):213-222.
+
+\item[53.] {\bf Naimi AI}, Larkin JC, Platt RW. Machine Learning for Fetal Growth Prediction. \emph{Epidemiol}. 29(2):290-298.
+
+\item[52.] Conzuelo G and {\bf Naimi AI}. The impact of computing inter-pregnancy intervals without accounting for intervening pregnancy events. \emph{PP\&E}. 32(2):141-148.
+
+\item[51.] Larkin JC and {\bf Naimi AI}. Effect of population-specific birthweight curves on disparities in perinatal mortality in small-for-gestational age pregnancies. \emph{Amer J Perinatol}. 35(7):695-702.
+
+\item[50.] Aibibula W, Cox J, Hamelin AM, Moodie EEM, {\bf Naimi AI}, McLinden T, Klein MB, Brassard P; Canadian Co-infection Cohort Investigators. Impact of Food Insecurity on Depressive Symptoms Amount HIV-HCV Co-infected People. \emph{AIDS Behav}. 2017; 21(12): 3464-3472. PMID: 29076031.
+
+\item[49.] {\bf Naimi AI}. On wagging tales about causal inference. \emph{Int J Epidemiol}. 2017. 46(4): 1340-1342. PMID: 28575465.
+
+\item[48.] {\bf Naimi AI}. Commentary: Integrating Complex Systems Thinking into Epidemiologic Research. \emph{Epidemiol}. 2016; 27(6): 843-7. PMID: 27488060.
+
+\item[47.] Riverin BD, Li P, {\bf Naimi AI}, Diop M, Provost S, Strumpf E. Team-based innovations in primary care delivery in Quebec and timely physician follow-up after hospital discharge: a population-based cohort study. CMAJ Open. 2017; 5(1): E28-E35. PMID: 28401115.
+
+\item[46.] Riverin BD, Li P, {\bf Naimi AI}, Strumpf E. Team-based versus traditional primary care models and short-term outcomes after hospital discharge. CMAJ. 2017; 189(16): E585-E593. PMID: 28438951.
+
+\item[45.] Lemon LS, {\bf Naimi AI}, Abrams B, Kaufman JS, Bodnar LM. Prepregnancy obesity and the racial disparity in infant mortality. Obesity (Silver Spring). 2016; 24(12): 2578-2584. PMID: 27891829.
+
+\item[44.] {\bf Naimi AI}, Cole SR, Kennedy EH. An introduction to g methods. \emph{Int J Epidemiol}. 2017; 46(2): 756-762. PMID: 28039382.
+
+\item[43.] Oakes JM, {\bf Naimi AI}. Mediation, interaction, interference for social epidemiology \emph{Int J Epidemiol}. 2016; 45(6): 1912-1914. PMID: 27864409.
+
+\item[42.] {\bf Naimi AI}. Book Review--Explanation in Causal Inference: Methods for Mediation and Interaction, by Tyler J VanderWeele. \emph{Eur J Epidemiol}. 2016. [Epub ahead of print]. PMID: 27518302.
+
+\item[41.] Riverin BD, Li P, {\bf Naimi AI}, Strumpf E. Team-based versus traditional primary care models and short-term outcomes after hospital discharge. \emph{CMAJ}. 2017; 189(16): E585-E593. PMID: 28438951.
+
+\item[40.] Auger N, {\bf Naimi AI}, Fraser WD, Healy-Profitos J, Luo ZC, Nuyt AM, Kaufman JS. Three alternative methods to resolve paradoxical associations of exposures before term. \emph{Eur J Epidemiol}. 2016; 31(10): 1011-1019. PMID: 27325162.
+
+\item[39.] al-Mamari N, {\bf Naimi AI}, Tulandi T. Predictors of Medical Resident Burnout in Canadian Obstetrics \& Gynecology Training Programs. \emph{Gynecological Surgery}. 2016: Volume 13, Issue 4, pp 323–327.
+
+\item[38.] Kramer MS, Zhang X, Bin Aris I, Dahhou M, {\bf Naimi AI}, Yang S, Martin RM, Oken E, Platt RW. Methodologic challenges in studying the causal determinants of child growth. \emph{Int J Epidemiol}. 2016; 45(6): 2030-2037. PMID: 27297676.
+
+\item[37.] Auger N, Costopoulos A, {\bf Naimi AI}, Bellingeri  F, Vecchiato L, Fraser WD. Comparison of stillbirth rates by cause among Haitians and non-Haitians in Canada. \emph{Int J Gynaecol Obstet}. 2016; 134(3): 315-9. PMID: 27262940.
+
+\item[36.] {\bf Naimi AI}. The Counterfactual Implications of Fundamental Cause Theory. \emph{Curr Epidemiol Rep}. 2016; 3(1): 92-97.
+
+\item[35.] Auger N, Luo ZC, Nuyt AM, Kaufman JS, {\bf Naimi AI}, Platt RW, Fraser WD. Secular Trends in Preeclampsia Incidence and Outcomes in a Large Canada Database: A Longitudinal Study Over 24 years. \emph{Can J Cardiol}. 2016; 32(8): 987. e15-23. PMID: 26947535.
+
+\item[34.] {\bf Naimi AI}, Auger N. Cumulative risk of stillbirth in the presence of competing events. \emph{BJOG}. 2016; 123(7): 1071-4. PMID 26923933.
+
+\item[33.] {\bf Naimi AI}, Schnitzer ME, Moodie EE, Bodnar LM. Mediation Analysis for Health Disparities Research. \emph{Am J Epidemiol}. 2016; 184(4): 315-24. PMID: 27489089.
+
+\item[32.] {\bf Naimi AI}. Mini-Commentary: Studying interpregnancy interval effects using observational data: Some cautionary remarks. \emph{BJOG}. 2016; 123(8): 1319. PMID: 26567522.
+
+\item[31.] Auger N, Leduc L, {\bf Naimi AI}, Fraser WD. Delivery at term: Impact of university education by week of gestation. \emph{J Obstet Gynaecol Can}. 2016; 38(2): 118-24. PMID: 27032735.
+
+\item[30.] Adibi JJ, Lee MK, {\bf Naimi AI}, Barrett E, Nguyen RH, Sathyanarayana S, Zhao Y, Thiet MP, Redmon JB, Swan SH. Human chorionic gonadotropin partially mediates phthalate association with male and female anogenital distance. \emph{J Clin Endocrinol Metab}. 2015; 100(9): E1216-24. PMID: 26200238.
+
+\item[29.] Shrier I, Steele RJ, Zhao M, {\bf Naimi AI}, Verhagen E, Stovitz SD, Rauh MJ, Hewett TE. A multistate framework for the analysis of subsequent injury in sport (M-FASIS): Implications for research questions, study design and classifications schemes. \emph{Scand J Med Sci Sports}. 2016; 26(2): 128-39. PMID: 26040301. 
+
+\item[28.] {\bf Naimi AI}. Invited Commentary: Boundless Science: Putting Natural Direct and Indirect Effects in a Clearer Empirical Context. \emph{Am J Epidemiol}. 2015; 182(2):109-14. PMID: 25944884.
+
+\item[27.] {\bf Naimi AI}, Tchetgen Tchetgen EJ. Invited Commentary: Estimating Population Impact in the Presence of Competing Events. \emph{Am J Epidemiol}. 2015; 181(8):571-4. PMID: 25816819.
+
+\item[26.] {\bf Naimi AI}, Kaufman JS. Invited Review: Counterfactual Theory in Social Epidemiology: Reconciling Analysis and Action for the Social Determinants of Health. \emph{Curr Epidemol Rep}. 2015; 2(1):52-60.
+
+\item[25.] {\bf Naimi AI}, Auger N. Population-Wide Folic Acid Fortification and Preterm Birth: Testing the Folate Depletion Hypothesis. \emph{Am J Public Health}. 2015; 105(4):793-5. PMID: 25713974.
+
+\item[24.] Basso O, {\bf Naimi AI}. Invited Commentary: From Estimation to Translation: Interpreting Mediation Analysis Results in Perinatal Epidemiology. \emph{Epidemiol}. 2015; 26(1):27-9. PMID: 25437316.
+
+\item[23.] {\bf Naimi AI}, Moodie EE, Auger N, Kaufman JS. Semiparametric Adjusted Exposure-Response Curves. {\em Epidemiol}. 2014; 25(6):919-22. PMID: 25137220.
+
+\item[22.] {\bf Naimi AI}, Moodie EE, Auger N, Kaufman JS. Stochastic mediation contrasts in epidemiologic research: Interpregnancy interval and the educational disparity in preterm delivery. \emph{Am J Epidemiol}. 2014; 180(4): 436-45. PMID: 25038216.
+
+\item[21.] Keil A, Edwards J, Richardson DB, {\bf Naimi AI}, Cole SR. The Parametric g-Formula for Time-to-event Data: Intuition and a Worked Example. {\em Epidemiol}. 2014; 25(6): 889-897. PMID: 25140837.
+
+\item[20.] {\bf Naimi AI}, Kaufman JS, MacLehose RF. Mediation Misgivings: Ambiguous Clinical and Public Health Interpretations of Natural Direct and Indirect Effects. {\em Int J Epidemiol}. 2014; 43(5):1656-61. PMID: 24860122.
+
+\item[19.] {\bf Naimi AI}, Westreich DJ. Book Review--Big Data: A Revolution that will Transform How we Live, Work, and Think. By Viktor Mayer-Sch\"{o}nberger and Kenneth Cukier. {\em Am J Epidemiol}. 2014; 179(9):1143-1144. PMID: 24714727.
+
+\item[18.] Auger N, Vecchiato L,  {\bf Naimi AI}, Costopoulos A, Fraser WD. Stillbirth Rates among Haitians in Canada. {\em Pediatric \& Perinatal Epidemiol}. 2014; 28(4):333-337. PMID: 24803349.
+
+\item[17.] Auger N, Gilbert NL, {\bf Naimi AI}, Kaufman JS. Fetuses-at-risk, to Avoid Paradoxical Associations at Early Gestational Ages: Extension to Preterm Infant Mortality. {\em Int J Epidemiol}. 2014; 43(4):1154-1162. PMID: 24513685.
+
+\item[16.] Auger N, {\bf Naimi AI}, Smargiassi A, Lo E, Kosatsky T. Extreme heat and risk of early delivery among preterm and term pregnancies. {\em Epidemiol}. 2014; 25:344-350. PMID: 24595396.
+
+\item[15.] {\bf Naimi AI}, Cole SR, Hudgens MG, Richardson DB. Estimating the effect of cumulative occupational asbestos exposure on time to lung cancer mortality: using structural nested failure time models to account for the healthy worker survivor effect. {\em Epidemiol}. 2014; 25:246-254. PMID: 24487207.
+
+\item[14.] {\bf Naimi AI}, Moodie EE, Auger N, Kaufman JS. Constructing Inverse Probability Weights for Continuous Exposures: A Comparison of Methods. {\em Epidemiol}. 2014; 25:292-299. PMID: 24487212.
+
+\item[13.] {\bf Naimi AI}, Richardson DB, Cole SR. Causal Inference in Occupational Epidemiology: Accounting for the Healthy Worker Effect by Using Structural Nested Models. {\em Am J Epidemiol}. 2013; 178(12):1681-1686. PMID: 24077092.
+
+\item[12.] {\bf Naimi AI}, Cole SR, Hudgens MG, Brookhart MA, Richardson DB. Assessing the component associations of the healthy worker survivor bias: occupational asbestos exposure and lung cancer mortality. {\em Ann Epidemiol}. 2013; 23(6): 334-341. PMID: 23683709.
+
+\item[11.] Cole SR, Richardson DB, Chu H, {\bf Naimi AI}. Analysis of occupational asbestos exposure and lung cancer mortality using the G formula. {\em Am J Epidemiol}. 2013; 177(9): 989-996. PMID: 23558355.
+
+\item[10.] Horney J, {\bf Naimi AI}, Lyles W, Simon M, Salvesan D, Berke P. Assessing the relationship between hazard mitigation plan quality and rural status in a cohort of 59 counties from 3 states in the Southern United States. {\em Challenges}. 2012; 3(2):183-193.
+
+\item[9.] {\bf Naimi AI}, Cole SR, Westreich DJ, Richardson DB. Reply Re: A comparison of methods to estimate the hazard ratio with time varying confounding and nonpositivity. \emph{Epidemiol}. 2012; 23(1): 179 
+
+\item[8.] Herring AH, {\bf Naimi AI}. Invited Commentary: The Ecological Design. {\em Br J Obstet Gynaecol}. 2012;119(13): 1638-1639.
+
+\item[7.] {\bf Naimi AI}, Keil A. Letter: Marginal structural models and the healthy worker survivor effect. {\em BMC Public Health}. 2011; 11:571.
+
+\item[6.] {\bf Naimi AI}, Cole SR, Westreich DJ, Richardson DB. A comparison of methods to estimate the hazard ratio under conditions of time-varying confounding and nonpositivity. {\em Epidemiol}. 2011; 22(5): 718-723. PMID: 21747286.
+
+\item[5.] {\bf Naimi AI}, Kaufman JS, Howe CJ, Robinson WB. Letter: Mediation Considerations: serum potassium and the racial disparity in diabetes risk. {\em Am J Clin Nutr}. 2011; 94(2):614-6. PMID: 21775571.
+
+\item[4.] {\bf Naimi AI}, Bourbeau J, Perrault H, Baril J, Wright-Paradis C, Rossi A, Taivassalo T, Sheel AW, Rab{\o}l R, Dela F, Boushel R. Altered mitochondrial regulation in quadriceps muscles of patients with COPD. {\em Clin Physiol Funct Imaging}. 2011; 31(2):124-131. PMID: 21091605.
+
+\item[3.] {\bf Naimi AI} Book Review: Public Health and the Risk Factor: A History of an Uneven Medical Revolution, by William G Rothstein. {\em Am J Epidemiol}. 2009; 169(6): 781-782.
+
+\item[2.] {\bf Naimi AI}, Paquet C, Gauvin L, Daniel M. Associations between area-level unemployment, body mass index, and risk factors for cardiovascular disease in an urban area. {\em Int J Environ Res Publ Health}. 2009; 6(12): 3082-3096. PMID: 20049247. 
+
+\item[1.] Shrier I, Zukor D, Boivin JF, Collet JP, Tanzer M, Feldman D, {\bf Naimi AI}, Rossignol M, Prince F. The feasibility of a randomized trial using a progressive exercise program in patients with severe hip osteoarthritis.  {\em J Musculoskelet Pain}. 2008; 16(4): 313-321. 
+
+\end{outerlist}
+\blankline
+\section{AJE Classroom Articles}
+\begin{outerlist}
+
+\item[13] {\bf Naimi AI} and Whitcomb. Inferential Statistics and Direct versus Inverse Problems. Accepted for Publication March 13 2025. 
+
+\item[12.] Zivich PE and {\bf Naimi AI}. A Primer on Neural Networks. \emph{Am J Epidemiol}. Accepted for Publication July 30 2024.
+
+\item[11.] {\bf Naimi AI} and Whitcomb BE. Inverse Probability Weighting for Categorical Exposures. \emph{Am J Epidemiol}. Accepted for Publication Oct 27 2024
+
+\item[10.] Banack HR, Mayeda ER, Fox MP, {\bf Naimi AI}, Whitcomb BE. Collider Stratification Bias II: Magnitude of Bias. \emph{Am J Epidemiol}. 2024 Aug 6:kwae255. doi: 10.1093/aje/kwae255
+
+\item[9.] Whitcomb BE, {\bf Naimi AI}. Interaction in Theory and in Practice: Evaluating Combinations of Exposures in Epidemiologic Research. \emph{Am J Epidemiol}. Am J Epidemiol. 2023 Jun 2;192(6):845-848. PMID: 36757201
+
+\item[8.] Banack HR, Mayeda ER, {\bf Naimi AI}, Fox MP, Whitcomb BE. Collider Stratification Bias I: Principles and Structure. \emph{Am J Epidemiol}. 2023 Oct 10:kwad203. doi: 10.1093/aje/kwad203
+
+\item[7.] {\bf Naimi AI}, Whitcomb BE. Defining and Identifying Local Average Treatment Effects. \emph{Am J Epidemiol}. Accepted Feb 17 2023.
+
+\item[6.] {\bf Naimi AI}, Whitcomb BE. Defining and Identifying Average Treatment Effects. \emph{Am J Epidemiol}. 2023 May 5;192(5):685-687. 
+
+\item[5.] {\bf Naimi AI}, Whitcomb BW. Simple Approaches for Dealing with Correlated Data. \emph{Am J Epidemiol}. 2023 Apr 6;192(4):507-509.
+
+\item[4.] Whitcomb BE, {\bf Naimi AI}. Defining, quantifying, and interpreting ‘noncollapsibility’ in epidemiologic studies of measures of effect. \emph{Am J Epidemiol}. 2021;190(5):697-700.
+
+\item[3.] {\bf Naimi AI}, Whitcomb BW. Estimating Risk Ratios and Risk Differences using Regression. \emph{Am J Epidemiol}. 2020;189(6):508-510.
+
+\item[2.] Whitcomb BW and {\bf Naimi AI}. Things don't always go as expected: the example of non-differential misclassification of exposure -- bias and error. \emph{Am J Epidemiol}. 2020;189(5):365-368.
+
+\item[1.] {\bf Naimi AI} and Whitcomb BW. Can confidence intervals be interpreted? \emph{AJE}. 2020;189(7):631-633.
+
+\end{outerlist}
+\blankline 
+%\section{Under Review}
+%\begin{outerlist}
+%\item[] {\bf Naimi, AI}, Kennedy EH, Bodnar LM, Cole SR, Schisterman EF. Understanding and Dealing with the Curse of Dimensionality. \emph{Epidemiology}. Submitted May 2022.
+% \item[] Rudolph JE, Kennedy EH, Benkeser D, Schisterman EF, {\bf Naimi AI}. Estimation of the average causal effect in longitudinal data with time-varying exposures: the challenge of non-positivity and the impact of model flexibility. \emph{Epidemiology}. Submitted October 2021.
+%\item[] Rudolph JE, {\bf Naimi AI}, Whitcomb BW. Competing Risks and Causation: Interpreting Estimates from Subdistribution versus Cause-Specific Methods. \emph{Am J Epidemiol}. Submitted March 2021.
+%\item[] {\bf Naimi AI}, Zhong Y, Rudolph JE. Bootstrap methods for confidence interval estimation with parametric and machine-learning based estimators. \emph{Epidemiology}. Revised and Resubmitted Dec 2020.
+%\item[] {\bf Naimi AI}, Chouldechova A, Bodnar LM, Larkin JC. Good Practices in Predictive Analytics. \emph{Int J Epidemiol}. Submitted March 2021.
+%\item[] {\bf Naimi AI}, Greenland S, Mansournia MA. From Association to Causation: Causality Theory for Statistical Analyses of Effects. \emph{Science}. Submitted June 2019.
+%\item[] Luo Z, {\bf Naimi AI}, Schisterman E. So many causal estimands, which one is right for you? \emph{Clinical Trials}. Submitted May 2019.
+%\end{outerlist}
+%\blankline
+\section{Conference Presentations}
+\begin{outerlist}
+
+\item[] {\bf Naimi AI} \& Zivich P. Does Machine Learning Work?: Designing Better Simulation Studies for Inference. Symposia Session. Society for Epidemiologic Research. Portland, OR. June 2023.
+
+\item[] {\bf Naimi AI}. Valid Causal Effect Estimates with Machine Learning Algorithms. Danish Epidemiologic Society Meeting. Nyborg, Denmark. April 2020 (Postponed to May 2021).
+
+\item[] {\bf Naimi AI}. Training Fair Algorithms: Considerations for Prediction and Causal Inference. Society for Epidemiologic Research. Boston, MA. June 2020.
+
+\item[] {\bf Naimi AI}. Valid Causal Effect Estimates with Machine Learning Algorithms. Society for Epidemiologic Research. Minneapolis, MN. June 2019.
+
+\item[] {\bf Naimi AI}. Nonparametric Methods and the Challenges of Model Misspecification. Society for Epidemiologic Research. Minneapolis, MN. June 2019.
+
+\item[] {\bf Naimi AI}. The Logic of Causal Inference. Society for Epidemiologic Research. Baltimore, MD. June 2018.
+
+\item[] {\bf Naimi AI}. Construct Validity and Causal Inference: On the Measurement of Social Causes. Society for Epidemiologic Research. Baltimore, MD. June 2018.
+
+\item[] {\bf Naimi AI}. Machine Learning in Epidemiologic Science. Symposia Session. Society for Epidemiologic Research. Baltimore, MD. June 2018.
+
+\item[] {\bf Naimi AI}. Machine Learning for Risk Stratification of Rare Outcomes: Examples from Reproductive/Perinatal Epidemiology. {\em American College of Epidemiology Conference}. New Orleans, LA. Sept 2017.
+
+\item[] {\bf Naimi AI}, Larkin JC, Platt RW. Machine Learning for Fetal Growth Prediction. Society for Epidemiologic Research. Seattle, WA. June 2017.
+
+\item[] {\bf Naimi AI}. G-computation for compliance adjustment in randomized trials. Symposium Speaker, ``Causal Inference in Randomized Trials.'' {\em Atlantic Causal Inference Conference}. Chapel Hill, NC. May 2017.
+
+\item[] {\bf Naimi AI}. Effect Decomposition with Structural Nested Models: A Practical Multiply-Robust Approach. Lightning Session Talk. {\em Atlantic Causal Inference Conference}. New York, NY. May 2016.
+
+\item[] {\bf Naimi AI}. Causal inference with Race/Ethnicity: Analysis and Interpretation. Symposium Speaker, ``Methodological challenges when assessing racial/ethnical disparities in environmental epidemiology.'' {\em International Society for Environmental Epidemiology}. S\~{a}o Paulo, Brazil. Sept 2015.
+\item[] {\bf Naimi AI}, Schnitzer ME, Moodie EEM, Bodnar LM. Mediation Analysis for Health Disparities Research. Concurrent Contributed Session Presentation.  {\em Society for Epidemiologic Research}. Denver, CO. Jun 2015.
+\item[] {\bf Naimi AI}. Informative cluster size in reproductive epidemiology. Symposium Speaker, ``Simplifications that don't work: When ignoring competing and recurrent events leads down the wrong causal path.'' {\em Society for Epidemiologic Research}. Denver, CO. Jun 2015.
+\item[] {\bf Naimi AI}. G-Estimation in Epidemiology: Challenges \& Opportunities. Symposium Discussant, ``G-methods in practice: an example from occupational epidemiology.'' {\em Society for Epidemiologic Research}. Denver, CO. Jun 2015.
+\item[] {\bf Naimi AI}. Systems Science in Epidemiology: Substance and Semantics. Symposium Speaker, ``Complexity and causal inference: Rigor and Realism in Epidemiology.'' {\em Society for Epidemiologic Research}. Denver, CO. Jun 2015.
+\item[] {\bf Naimi AI}, Moodie EEM, Auger N, Kaufman JS. Stochastic Mediation Contrasts Epidemiologic Research: Interpregnancy Interval and the Educational Disparity in Preterm Birth. {\em Society for Epidemiologic Research}. Seattle, WA. Jun 2014.
+\item[] {\bf Naimi AI}, MacLehose RF, Kaufman JS. Mediation Misgivings: Ambiguous Clinical and Public Health Interpretations of Natural Direct and Indirect Effects. {\em Society for Epidemiologic Research}. Seattle, WA. Jun 2014.
+\item[] {\bf Naimi AI}, Auger N. Short Interpregnancy Interval, Timing of Gestation, and the Folate Depletion Hypothesis. {\em Society for Epidemiologic Research}. Seattle, WA. Jun 2014.
+\item[] {\bf Naimi AI}, Moodie EEM, Auger N, Kaufman JS. Stochastic Mediation Contrasts in Population Health Research: Interpregnancy Interval and the Educational Disparity in Preterm Birth. {\em Atlantic Causal Inference Conference}. Providence, RI. May 2014.
+\item[] {\bf Naimi AI}, Cole SR, Moodie EEM. Exploring the finite-sample properties of inverse probability weighted and G estimation of a structural nested failure time model under positivity violations. {\em ASA Joint Statistical Meetings}. Montreal, QC. Aug 2013; Abstract \# 308635.
+\item[] {\bf Naimi AI}, Moodie EEM, Auger N, Kaufman JS. Semiparametric Weighted Exposure-Response Curves for the Effect of Maternal Education on the Risk of Small for Gestational Age Birth. \emph{Society for Pediatric and Perinatal Epidemiologic Research}. Boston, MA. Jun 2013.
+\item[] {\bf Naimi AI}, Moodie EEM, Kaufman JS. Illustrating Bootstrap Methods for Epidemiologic Research. {\em Society for Epidemiologic Research}. Boston, MA. Jun 2013.
+\item[] {\bf Naimi AI}, Cole SR, Richardson DB. Estimating the Association between Asbestos and Lung Cancer Mortality using Structural Nested Models. {\em Am J Epidemiol}. Jun 2012; 175(Suppl 11): p S41.
+\item[]	{\bf Naimi AI}, Cole SR, Richardson DB. An assessment of necessary conditions for the healthy worker survivor effect. {\em Am J Epidemiol}. Jun 2011; 173(Suppl 11): p S231.
+\item[]	{\bf Naimi AI}, Cole SR, Richardson DB. A comparison of methods to estimate the hazard ratio under conditions of time-varying confounding and nonpositivity: the healthy worker effect. {\em Am J Epidemiol}. Jun 2010; 171(Suppl 11): p S145.
+\item[]	{\bf Naimi AI}, Daniel M, Paquet C, Gauvin L. Associations between area-level unemployment, body mass index, and risk factors for cardiovascular disease in an urban setting. {\em Circulation}. 2009; (119): e305. 
+\item[]	{\bf Naimi AI}, Wright-Paradis C, Rossi A, Taivassalo T, Deschenes J, Baril J, Robillard J, Comtois A, Bourbeau J, Perrault H. Evidence for Limited Complex II Respiration in Skeletal Muscle of Patients with Chronic Obstructive Pulmonary Disease. {\em Applied Physiology, Nutrition, and Metabolism}. Sept 2006; 31(Suppl 1): pp. S1-S91(1)
+\item[]	{\bf Naimi AI}, Garedew A, Troppmair J, Boushel R, Gnaiger E. Mitochondrial respiratory capacity in vivo: the coupled reference state and a reinterpretation of the uncoupling control ratio. {\em Applied Physiology, Nutrition, and Metabolism}. Sept 2006;31(Suppl 1): pp. S1-S91(1)
+\item[] {\bf Naimi AI}, Garedew A, Troppmair J, Boushel R, Gnaiger E. Limitation of aerobic metabolism by the phosphorylation system and mitochondrial respiratory capacity of fibroblasts in vivo. {\em Mitochondrial Physiology Network}. 2005; 10(9): pp. 55-56.
+\end{outerlist}
+
+\section{Academic Talks}
+\begin{outerlist}
+
+\item[] Machine Learning for Estimating the Effects of Nutritional Exposures on Pregnancy Outcomes: Challenges and Opportunities. Department of Biostatistics, Emory University. March 16 2023.
+
+\item[] Machine Learning for Estimating the Effects of Nutritional Exposures on Pregnancy Outcomes: Challenges and Opportunities. NICHD, Epidemiology Branch. Jan 18 2023.
+
+\item[] The Future of Epidemiologic Methods (with Dr Jessica Edwards). University of North Carolina at Chapel Hill. August 26 2022.
+
+\item[] Causal Inference in Public Health and Epidemiologic Research. Research Advisory Council, Emory University. March 10 2021.
+
+\item[] The per protocol effect of preconception-initiated low-dose aspirin on conception, pregnancy loss, and live birth. Epidemiology Branch Seminar, NIEHS. March 10 2021.
+
+\item[] Challenges in Obtaining Valid Causal Effect Estimates with Machine Learning Algorithms. Department of Epidemiology and Biostatistics Seminar, CUNY. April 20, 2020.
+
+\item[] The per protocol effect of preconception-initiated low-dose aspirin on conception, pregnancy loss, and live birth. Department of Epidemiology Seminar, Rollins School of Public Health, Emory University. April 17 2020.
+
+\item[] Challenges in Obtaining Valid Causal Effect Estimates with Machine Learning Algorithms. Annual Meeting, Danish Epidemiological Society. \emph{Re-scheduled due to COVID-19}.
+
+\item[] Valid Causal Effect Estimates with Machine Learning Algorithms. Causal Inference Group, Johns Hopkins University. Feb 28 2020.
+
+\item[] The per protocol effect of preconception-initiated low-dose aspirin on conception, pregnancy loss, and live birth. Graduate School of Public Health and Health Policy Grand Rounds, CUNY. Feb 19 2020.
+
+\item[] Valid Causal Effect Estimates with Machine Learning Algorithms. UNC Causal Inference Research Group. April 5 2019.
+
+\item[] G computation to estimate the per protocol effect in randomized trials. University of Pittsburgh, Department of Biostatistics Seminar. April 11 2019.
+
+\item[] Machine Learning: Considerations for Prediction and Causality. University of California at San Diego. April 24 2019.
+
+\item[] Randomized Trials and Tribulations: Quantifying Exposure Effects Through Time. Biostatistics Coffee and Collaboration Hour. University of Pittsburgh. Jan 2019.
+
+\item[] Mediation Analysis for Health Disparities Research. Public Health Dynamics Laboratory. University of Pittsburgh. Nov 2017.
+\item[] Mediation Analysis for Health Disparities Research. \emph{Eunice Kennedy Shriver National Institute of Child Health and Human Development}. Epidemiology Branch. July 2017.
+\item[] Singly- versus Doubly-Robust Causal Mediation Analysis: An Application to Racial Disparities in Infant Mortality. Department of Statistics. Carnegie Mellon University. October 2016.
+\item[] Mediation Analysis for Health Disparities Research. Department of Epidemiology Seminar Series. University of Pittsburgh. October 2016.
+\item[] Mediation and Pathway Analysis. International Society of Environmental Epidemiology (ISEE) Student and New Research Network Webinar. April 2016.
+\item[] Causal Mediation in Epidemiology. SERdigital Spring Web Conference. March 2016.
+\item[] When (and Why) Design Trumps Analysis in Reproductive Epidemiology. Reproductive Pediatric and Perinatal Seminar Series, University of Pittsburgh. October 2015.
+\item[] Why Design Trumps Analysis: Studying  Interpregnancy Interval in Reproductive Epidemiology. Perinatal and Reproductive Epidemiology Seminar Series, McGill University. April 2015.
+\item[] Causal Inference and Complex Systems Science: Towards Rigor and Realism in Epidemiologic Research. Department of Epidemiology, Biostatistics, and Occupational Health, McGill University. Mar 2015.
+\item[] Birth Spacing. Grand Rounds, Department of Obstetrics and Gynecology, McGill University. Feb 2015.
+\item[] Social Epidemiology and the Population's Health: Exploring Racial Disparities in Preterm Birth. General Lecture Series, Department of Exercise Science, Concordia University. Feb 2015.
+\item[] Hypothetical interventions to reduce racial disparities in preterm birth: A stochastic mediation approach. Department of Epidemiology, University of Pittsburgh. Nov 2014.
+\item[] Hypothetical interventions to reduce racial disparities in preterm birth: A stochastic mediation approach. Social Statistics Seminar, McGill University. Oct 2014.
+\item[] Estimating Controlled Direct Effects. Causal Inference Research Group, University of North Carolina at Chapel Hill. Sept 2014.
+\item[] Hypothetical Interventions to Reduce Racial Disparities in Preterm Birth. Department of Epidemiology, University of North Carolina at Chapel Hill. Sept 2014.
+\item[] Stochastic Mediation Contrasts in Epidemiologic Research. Centre for Clinical Epidemiology, Jewish General Hospital--Lady Davis Research Institute. April 2014.
+\item[] Causal Inference and Competing Risks. Department of Epidemiology, Biostatistics, and Occupational Health. McGill University. Mar 2014.
+\item[] Stochastic Mediation Contrasts in Social Epidemiology: Interpregnancy Interval and the Educational Disparity in Preterm Birth. Department of Epidemiology. University of Michigan. Feb 2014.
+\item[] Quantile Regression Methods in Perinatal Epidemiology. Department of Epidemiology, Biostatistics, and Occupational Health, McGill University. Dec 2013.
+\item[] The mediating role of inter-pregnancy interval in the relation between maternal education and preterm birth. MIREC Study Group, Centre hospitalier universitaire Sainte-Justine. Nov 2013.
+\item[] G-estimation of the Controlled Direct Effect Under Incomplete Mediator Interventions. Department of Epidemiology, Biostatistics, and Occupational Health, McGill University. Nov 2013.
+\item[] Single World Intervention Graphs for Epidemiologic Research. Causal Reading Group, McGill University. Sept 2013.
+\item[]  Marginal Structural Models for Exposure-Response Relations: Modeling the Effect of Maternal Education on the Risk of Preterm Birth. Institut national de sant\'{e} publique du Qu\'{e}bec. May 2013.
+\item[] G-Estimation of Structural Nested Failure Time Models. Biostatistics Reading Group. McGill University. Jan 2013.
+\item[] Using Novel Methods to Estimate the Effect of Occupational Asbestos Exposure on Lung Cancer Mortality. Respiratory Epidemiology and Clinical Research Unit, Montreal Chest Institute, McGill University Health Centre. Nov 2012.
+\item[] Structural Nested Failure Time Models: Asbestos, Lung Cancer Mortality, and the Healthy Worker Survivor Effect. Department of Epidemiology and Biostatistics, Harvard Medical School. Apr 2012.
+\item[] Structural Nested Models and the Healthy Worker Survivor Effect: Revisiting the Asbestos and Lung Cancer Mortality Association. Department of Epidemiology, UNC Chapel Hill. Mar 2012.
+\item[] Causal Inference Under Conditions of Time-Varying Confounding and Nonpositivity: Asbestos, Lung-Cancer Mortality, and the Healthy Worker Survivor Effect. Causal Reading Group, McGill University. Oct 2011.
+\item[] Causal Inference Under Conditions of Time-Varying Confounding and Nonpositivity: Asbestos, Lung-Cancer Mortality, and the Healthy Worker Survivor Effect. Centre de Recherche du Centre Hospitalier de l'Universite de Montreal. Oct 2011.
+\end{outerlist}
+\blankline
+\section{Editorial Service}
+\begin{outerlist}
+\item[] Associate Editor, {\it Am J Epidemiol},  2016 -- \textcolor{white}{2015}
+\item[] Editorial Board Member, {\it Epidemiol},  2015 -- \textcolor{white}{2015}
+\item[] Methodological Editor, {\it Fertility \& Sterility},  2021 -- \textcolor{white}{2015}
+\item[] Statistical Editor, {\it JAMA Network Open},  2020 -- 2023
+\end{outerlist}
+\section{Peer Review}
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip 0.15in \emph{Am J Epidemiol} (frequent reviewer) & \hskip -1in  \emph{Eur J Epidemiol} \\
+\hskip 0.15in \emph{Ann Epidemiol}                      &  \hskip -1in \emph{Fertility \& Sterility} (Frequent Reviewer) \\
+\hskip 0.151in \emph{Biometrics}                        &  \hskip -1in  \emph{Health Serv Res}   \\
+\hskip 0.151in \emph{Biom J}                            &  \hskip -1in  \emph{Int J Epidemiol} (frequent reviewer)  \\
+\hskip 0.15in  \emph{BioSocieties}                      &  \hskip -1in  \emph{J Epidemiol Community Health} \\
+\hskip 0.15in  \emph{Biostatistics}                     & \hskip -1in \emph{JAMA Network Open} (Frequent Reviewer) \\
+\hskip 0.15in  \emph{Birth Defects Res B Dev Reprod Toxicol} &  \hskip -1in \emph{Obesity}   \\
+\hskip 0.15in  \emph{BJOG} &  \hskip -1in \emph{Occup Environ Med}   \\ 
+\hskip 0.15in  \emph{BMJ} &  \hskip -1in \emph{Paediatr Perinat Epidemiol} \\ 
+\hskip 0.15in  \emph{Cancer Causes Control} &  \hskip -1in \emph{PLoS One}    \\
+\hskip 0.15in  \emph{Environmental Health Perspectives} & \hskip -1in \emph{Stat Med} \\
+\hskip 0.15in  \emph{Epidemiology} (frequent reviewer) & \hskip -1in  \emph{SSM Population Health}  \\
+\hskip 0.15in  \emph{Epidemiologic Methods}  &   \hskip -1in   \\
+\end{tabular}
+\blankline
+\section{Teaching}
+\begin{outerlist}
+\item[] {\em Graduate Instructor or Co-Instructor}\\[-2em]
+
+%\item[] 2024-: Introduction to Monte Carlo Simulation Using R (EPI 799R, Emory University). Two credit (Instructor).\\[-2em]
+
+\item[] 2024-: Machine Learning for Causal Inferece (EPI 798R, Emory University). Two credit (Instructor).\\[-2em]
+
+\item[] 2022-2024: Year 3+ PhD Development Seminar (EPI 790R, Emory University). One credit (Instructor).\\[-2em]
+
+\item[] 2022- : Epidemiologic Methods IV (EPI 560, Emory University). Four credits (Instructor).\\[-2em]
+
+\item[] 2018-19: Epidemiologic Methods 2 (EPI2187, University of Pittsburgh). Three credits (Instructor).\\[-2em]
+
+\item[] 2014-15: Introduction to Epidemiologic Science (OBGYN 900, McGill). Three credits.\\[-2em]
+
+\item[] 2013-15: Causal Inference (EPID610, McGill). Three credits (with Robert Platt).\\[-2em] %13 students
+
+\item[] 2009: Social Epidemiology Seminar (EPID889, UNC). Two credits (with James C.~Thomas).%, 15 students
+
+\item[] {\em Guest Lecturer}\\[-2em]
+\item[] 2021: Epidemiologic Methods IV (EPI 560, Emory University). Lecture on Methods for Time-Dependent Data. 2 Lectures.\\[-2em]
+
+\item[] 2021: Advanced Doctoral Seminar (Epidemiology, Emory University). Introduction to Simulation. 1 Lecture.\\[-2em]
+
+\item[] 2021: Epidemiology Doctoral Journal Club (Emory University). Basic Concepts in Machine Learning. 1 Lecture.\\[-2em]
+
+\item[] 2020: Epidemiologic Methods III (EPI 550, Emory University). Lecture on Correlated Outcomes.\\[-2em]
+
+\item[] 2015-2017: Epidemiologic Methods 2 (EPI2187, University of Pittsburgh). 2-4 lectures.\\[-2em]
+
+\item[] 2016: Reproductive Epidemiology (EPID2720, University of Pittsburgh). One lecture.\\[-2em]
+
+\item[] 2015: Fertility Fellows Seminar (OBGYN 993, McGill). Six lectures.\\[-2em]
+
+\item[] 2015: Causal Inference (EPID610, McGill). Six lectures. \\[-2em]
+
+\item[] 2015: Principles of study design (EPIB 669, McGill). One lecture. \\[-2em]
+
+\item[] 2012: Social Epidemiology: Concepts and Measures. (EPID 827, UNC). One lecture.\\[-2em]
+
+\item[] 2011: Epidemiologic Analysis of Binary Data (EPID 718, UNC). One lecture.\\[-2em]
+
+\item[] 2011: Theory and Quantitative Methods in Epidemiology (EPID 715, UNC). One lecture.
+
+\item[] {\em Teaching Assistant}\\[-2em]
+\item[] 2011: Theory and Quantitative Methods in Epidemiology (EPID 715, UNC). Four credits. %, 50 students
+
+\item[] {\em Short Courses \& Workshops}\\[-2em]
+
+\item[] 2024: Introduction to Monte Carlo Simulation. Advanced Methods Workshop. Society for Epidemiologic Research.
+
+\item[] 2023: Analytic Methods for Health Disparities. CDC, Office of Smoking and Health.
+
+\item[] 2022: Machine Learning for Causal Inference. RUHR School for Epidemiologic Methods.
+
+\item[] 2023, 2024: Introduction to Monte Carlo Simulation. Statistical Horizons.
+
+\item[] 2022, 2023, 2024: Machine Learning for Causal Inference. Statistical Horizons.
+
+\item[] 2021: Machine Learning and Artificial Intelligence for Causal Inference and Prediction: A Primer. Advanced Methods Workshop. Society for Epidemiologic Research.
+
+\item[] 2019: An Introduction G Methods. Advanced Methods Workshop. Society for Epidemiologic Research.
+
+\item[] 2018: An Introduction G Methods. Advanced Methods Workshop. Society for Epidemiologic Research.
+
+\item[] 2017: An Introduction to the Parametric G formula. Advanced Methods Workshop. Society for Epidemiologic Research.
+
+\item[] 2016: Fitting Structural Nested Models to Epidemiologic Data. Advanced Methods Workshop. Society for Pediatric and Perinatal Epidemiologic Research.
+\end{outerlist}
+\blankline
+\section{Advising}
+\begin{outerlist}
+
+\item[] {\em Doctoral Committee Chair} \\
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip -0.1in Amanda Dorsey (2025-) & \\
+\hskip -0.1in Oluseye Ogunmoroti (2025-) & \\
+\hskip -0.1in Zhaohua Zheng (2024-) & \\
+\hskip -0.1in Erin Rogers (2022-2025) & \\
+\hskip -0.1in Yongqi Zhong (2019-2021) & \\
+\hskip -0.1in Gabriel Conzuelo (2018-2021) & \\
+\hskip -0.1in Ya Hui Yu (2015-2018) & \\
+\end{tabular}
+
+\item[] {\em Doctoral Dissertation Committee Member} \\
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip -0.1in Sarah Thornbugh (Audrey Gaskins, Chair: 2022-2025) \\
+\hskip -0.1in Sussan Hoffman (Michelle Marcus, Chair: 2022-2025) \\
+\hskip -0.1in Caroline Barry (Hannah Cooper, Chair: 2022-2025) \\
+\hskip -0.1in Lindsey Schader (David Benkeser, Chair: 2022-2023) \\
+\hskip -0.1in Leah Moubadder (Lauren McCullough, Chair: 2022-2025) \\
+\hskip -0.1in Julie Barberio (Timothy Lash, Chair: 2021-2023) \\
+\hskip -0.1in Enoch Chen (Aaron Siegler, Chair: 2021-2023) \\
+\hskip -0.1in Abigail Cartus (Lisa Bodnar, Chair: 2018-2020) \\
+\hskip -0.1in Hsing-Hua Sylvia Lin (Joyce Bromberger, Chair: 2015-2017) \\
+\hskip -0.1in Jingchua Guo (Trevor Orchard, Chair: 2017-2019) \\
+\hskip -0.1in Bruno Riverin (Patricia Li, Chair: 2014-2017) & \\
+\hskip -0.1in Akhil Purakkal (Belinda Nicolau, Chair: 2014-2017) & \\
+\hskip -0.1in Abebula Wusiman (Paul Brassard, Chair: 2013-2017) & \\
+\end{tabular}
+
+\item[] {\em Masters Thesis Director } (University of Pittsburgh)\\
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip -0.1in Zhaohua Zheng (2022-2024) & \\
+\hskip -0.1in Mundayi Nlandu (2021-2023) & \\
+\hskip -0.1in Loren J Schleiden (2015-2017) & \\
+\hskip -0.1in Gabriel Conzuelo (2015-2017) & \\
+\end{tabular}
+
+\item[] {\em Masters Thesis Committee Member } (University of Pittsburgh)\\
+\begin{tabular}[t]{p{\textwidth-\rcollength}p{\rcollength}}
+\hskip -0.1in Shannon Haldeman (Eric Roberts, Chair: 2020) & \\
+\end{tabular}
+\end{outerlist}
+\section{Service}
+\begin{outerlist}
+%\item[] Ad hoc scientific reviewer. Patient Centered Outcomes Research Initiative. Merit Review Panel: Improving Postpartum Maternal Outcomes for Populations Experiencing Disparities. Oct 2021.
+\item[] Provost’s Distinguished Teaching Award Committee. March 2023.
+\item[] Ad hoc grant reviewer. National Institutes of Health. Special Emphasis Panel, ZRG1 EMS-J. March 2023.
+\item[] Epidemiology PhD Curriculum Committee Chair. Emory University, Department of Epidemiology. 2022--
+\item[] PhD Curriculum Review Committee Chair. Emory University, Department of Epidemiology. 2022
+\item[] Faculty Search Committee Member. Emory University, Department of Quantitative Theory and Methods (QTM) . 2021--2022
+\item[] Ad hoc grant reviewer. National Institutes of Health. Infectious Diseases, Reproductive Health, Asthma and Pulmonary Conditions Study Section. March 2021.
+\item[] PhD Program Admissions Committee Member. Emory University, Department of Epidemiology. 2020--2021
+\item[] Faculty Search Committee Member. Emory University, Department of Epidemiology. 2021--2022
+\item[] Epidemiology PhD Curriculum Committee Member. Emory University, Department of Epidemiology. 2020--2022
+\item[] Behind the Manuscript. Emory University, Department of Epidemiology. Nov 20, 2020.
+\item[] PhD Program Committee Member. Emory University, Department of Epidemiology. 2020--
+\item[] Interprofessional Team Training Facilitator. Emory University. Nov 6 2020.
+\item[] Ad hoc grant reviewer. National Institutes of Health. Special Emphasis Panel, Predoctoral Training in Advanced Data Analytics for Behavioral and Social Science. Oct 2019.
+\item[] Applied Epidemiology Exam Subcommittee: Chair, Department of Epidemiology, University of Pittsburgh, 2019--2020
+\item[] Applied Epidemiology Exam Subcommittee: Member, Department of Epidemiology, University of Pittsburgh, 2018--2020
+\item[] Education Committee Member: Society for Epidemiologic Research, 2018--2020
+\item[] Scientific \emph{ad hoc} Reviewer: Patient Centered Outcomes Research Institute, 2017
+\item[] Department of Epidemiology, Doctoral qualifying exam committee member, University of Pittsburgh, 2017--2020
+\item[] McGill University, Department of Obstetrics and Gynecology, Grand Rounds Journal Club Co-ordinator: Feb 2015--Aug 2015
+\item[] McGill Causal Research Group: Faculty Co-Ordinator: Jan 2015--Mar 2015
+\item[] Applied Causal Inference Student Group: Faculty Panelist (McGill): Feb 2014--2015
+\item[] Workshop on Defending a Dissertation Proposal (UNC Chapel Hill): Jan 2012
+\item[] UNC Causal Inference Research Group: Fall 2011--Spring 2012
+\item[] Causal Inference Book Club (UNC Chapel Hill): Summer 2011
+\item[] Journal Club on Epidemiologic Methods (UNC Chapel Hill): Summer 2011
+\item[] Workshop \& Seminar Series on Agent-Based Modeling (UNC Chapel Hill): Mar 2011
+\item[] Methodologic Challenges in Social Epidemiology (UNC Chapel Hill): Fall 2010--2011
+\item[] Social Epidemiology Journal Club (UNC Chapel Hill): Fall 2010--2011
+\end{outerlist}
+\blankline
+\section{Memberships}
+\begin{outerlist}
+\item[] Society for Epidemiological Research (2008 - Present)\\[-2em]
+\item[] Society for Pediatric and Perinatal Epidemiologic Research (2012 - Present)\\[-2em]
+\item[] American Public Health Association (2008 - 2020)\\[-2em]
+\item[] American Statistical Association (2012 - Present)\\[-2em]
+\item[] International Society for Environmental Epidemiology (2015 - Present)\\[-2em]
+\end{outerlist}
+\blankline
+
+%\section{References}
+%\begin{outerlist}
+%\item[] Enrique F. Schisterman, PhD\\Senior Investigator\\Chief, Epidemiology Branch \\ \emph{Eunice Kennedy Schriver} National Institutes of Child Health and Human Development \\ National Institutes of Health\\Phone: 301.435.6893\\email: schistee@mail.nih.gov
+
+%\item[] Lisa M. Bodnar, PhD\\Professor and Vice Chair of Research \\Department of Epidemiology, School of Public Health \\ University of Pittsburgh \\ Phone: 412.624.9032\\email: bodnar@edc.pitt.edu
+
+%\item[] Stephen R. Cole, PhD\\Professor \\Department of Epidemiology, Gillings School of Global Public Health\\University of North Carolina at Chapel Hill\\Phone: 919.966.7415\\email: cole@unc.edu
+
+%\item[] Jay S. Kaufman, PhD\\Professor\\Department of Epidemiology, Biostatistics and Occupational Health\\McGill University\\Phone: 514-398-7341\\email: jay.kaufman@mcgill.ca
+%\end{outerlist}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
