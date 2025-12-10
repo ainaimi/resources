@@ -1,14 +1,15 @@
-name: ""
+name: "Ashley I. Naimi"
 output_dir: "."
 navbar:
+  title: "Home"
   left:
-    - text: "Home"
-      href: https://ainaimi.github.io/index.html
     - text: "Team"
       href: https://ainaimi.github.io/team.html
+    - text: "Publications"
+      href: https://ainaimi.github.io/publications.html
     - text: "Resources"
-      href: https://ainaimi.github.io/access.html 
-      
+      href: https://ainaimi.github.io/access.html
+
   right:
     - icon: fa-envelope fa-2x
       href: "mailto:ashley.naimi@emory.edu"
@@ -22,6 +23,6 @@ navbar:
       href: https://stats.stackexchange.com/users/79490/ashley-naimi
 output:
   html_document:
-    css: 
+    css:
      - https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css
-     - 'styles.css'
+     - 'https://ainaimi.github.io/styles_modern.css'
